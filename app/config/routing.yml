@@ -6,7 +6,15 @@ home:
     path:      /
     defaults:  { _controller: AppBundle:Default:index }
 
-presntation_add:
-    path:      /add
+presentation_index:
+    path:      /presentation
+    defaults:  { _controller: AppBundle:Presentation:index }
+
+presentation_add:
+    path:      /presentation/add
     defaults:  { _controller: AppBundle:Presentation:add }
+
+presentation_manage:
+    path:      /presentation/manage
+    defaults:  { _controller: AppBundle:Presentation:manage }
 
