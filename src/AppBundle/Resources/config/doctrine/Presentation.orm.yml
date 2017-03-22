@@ -1,0 +1,20 @@
+AppBundle\Entity\Presentation:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\PresentationRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        url:
+            type: string
+            length: '512'
+        active:
+            type: boolean
+    lifecycleCallbacks: {  }

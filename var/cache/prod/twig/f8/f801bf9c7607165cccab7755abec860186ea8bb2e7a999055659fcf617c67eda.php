@@ -28,22 +28,27 @@ class __TwigTemplate_b154168aaa5f3e18c460ddf8305c59f87fac84b09b199b39b2238e9164d
         // line 5
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
+
         ";
-        // line 6
-        $this->displayBlock('stylesheets', $context, $blocks);
         // line 7
-        echo "        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 10
+        echo "
+        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
+        // line 11
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
     </head>
     <body>
         ";
-        // line 10
+        // line 14
         $this->displayBlock('body', $context, $blocks);
-        // line 11
-        echo "        ";
+        // line 15
+        echo "
+        ";
+        // line 16
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 12
+        // line 19
         echo "    </body>
 </html>
 ";
@@ -52,22 +57,28 @@ class __TwigTemplate_b154168aaa5f3e18c460ddf8305c59f87fac84b09b199b39b2238e9164d
     // line 5
     public function block_title($context, array $blocks = array())
     {
-        echo "Welcome!";
+        echo "Informations médicales";
     }
 
-    // line 6
+    // line 7
     public function block_stylesheets($context, array $blocks = array())
     {
+        // line 8
+        echo "
+        ";
     }
 
-    // line 10
+    // line 14
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 11
+    // line 16
     public function block_javascripts($context, array $blocks = array())
     {
+        // line 17
+        echo "            <script defer src=\"https://code.getmdl.io/1.3.0/material.min.js\"></script>
+        ";
     }
 
     public function getTemplateName()
@@ -82,7 +93,7 @@ class __TwigTemplate_b154168aaa5f3e18c460ddf8305c59f87fac84b09b199b39b2238e9164d
 
     public function getDebugInfo()
     {
-        return array (  69 => 11,  64 => 10,  59 => 6,  53 => 5,  47 => 12,  44 => 11,  42 => 10,  35 => 7,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  80 => 17,  77 => 16,  72 => 14,  67 => 8,  64 => 7,  58 => 5,  52 => 19,  50 => 16,  47 => 15,  45 => 14,  39 => 11,  36 => 10,  34 => 7,  29 => 5,  23 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -95,6 +106,6 @@ class __TwigTemplate_b154168aaa5f3e18c460ddf8305c59f87fac84b09b199b39b2238e9164d
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "base.html.twig", "/Applications/MAMP/htdocs/sf3/app/Resources/views/base.html.twig");
+        return new Twig_Source("", "base.html.twig", "/Applications/MAMP/htdocs/SevigneMiroir/app/Resources/views/base.html.twig");
     }
 }

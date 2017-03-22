@@ -32,7 +32,7 @@ class __TwigTemplate_cb9777bfdfff484a23e975558d67d1589de671ca66674502894fef7d1c0
         echo "    <div id=\"wrapper\">
         <div id=\"container\">
             <div id=\"welcome\">
-                <h1><span>Welcome to</span> Symfony ";
+                <h1><span>ZA Welcome to</span> Symfony ";
         // line 7
         echo twig_escape_filter($this->env, twig_constant("Symfony\\Component\\HttpKernel\\Kernel::VERSION"), "html", null, true);
         echo "</h1>
@@ -42,7 +42,7 @@ class __TwigTemplate_cb9777bfdfff484a23e975558d67d1589de671ca66674502894fef7d1c0
                 <p>
                     <svg id=\"icon-status\" width=\"1792\" height=\"1792\" viewBox=\"0 0 1792 1792\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z\" fill=\"#759E1A\"/></svg>
 
-                    Your application is now ready. You can start working on it at:
+                    test Your application is now ready. You can start working on it at:
                     <code>";
         // line 15
         echo twig_escape_filter($this->env, ($context["base_dir"] ?? null), "html", null, true);
@@ -114,6 +114,9 @@ class __TwigTemplate_cb9777bfdfff484a23e975558d67d1589de671ca66674502894fef7d1c0
         .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
     }
 </style>
+
+    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/icon?family=Material+Icons\">
+    <link rel=\"stylesheet\" href=\"https://code.getmdl.io/1.3.0/material.indigo-pink.min.css\">
 ";
     }
 
@@ -142,6 +145,6 @@ class __TwigTemplate_cb9777bfdfff484a23e975558d67d1589de671ca66674502894fef7d1c0
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "default/index.html.twig", "/Applications/MAMP/htdocs/sf3/app/Resources/views/default/index.html.twig");
+        return new Twig_Source("", "default/index.html.twig", "/Applications/MAMP/htdocs/SevigneMiroir/app/Resources/views/default/index.html.twig");
     }
 }

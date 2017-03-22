@@ -1,0 +1,113 @@
+<?php
+
+namespace AppBundle\Entity;
+
+/**
+ * Presentation
+ */
+class Presentation
+{
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $url;
+
+    /**
+     * @var bool
+     */
+    private $active;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Presentation
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return Presentation
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     *
+     * @return Presentation
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return bool
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+}
+
