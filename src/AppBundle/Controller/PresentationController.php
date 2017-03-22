@@ -21,30 +21,21 @@ class PresentationController extends Controller
         ]);
     }
 
-    public function addAction()
+    public function addAction(Request $request)
     {
-        /*return $this->render('presentation/add.html.twig', array(
-            'variable_name' => 'variable_value',
-        ));*/
-
         $presentation = new Presentation();
-
         $form = $this->createForm(PresentationType::class);
+        $form->handleRequest($request);
 
-        /*$form = $this->createForm(PresentationType::class, $presentation, array(
-            'action' => $this->generateUrl('profile_update'),
-            'method' => 'POST'
-        ));
+        if ($form->isSubmitted() && $form->isValid()) {
 
+            $presentation = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($presentation);
+            $em->flush();
 
-        $task->setTask('Write a blog post');
-        $task->setDueDate(new \DateTime('tomorrow'));
-
-        $form = $this->createFormBuilder($task)
-            ->add('task', TextType::class)
-            ->add('dueDate', DateType::class)
-            ->add('save', SubmitType::class, array('label' => 'Create Post'))
-            ->getForm();*/
+            return $this->redirectToRoute('home');
+        }
 
         return $this->render('presentation/add.html.twig', array(
             'form' => $form->createView(),

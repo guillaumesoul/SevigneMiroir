@@ -2,6 +2,11 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
-prsentation_add:
+home:
+    path:      /
+    defaults:  { _controller: AppBundle:Default:index }
+
+presntation_add:
     path:      /add
     defaults:  { _controller: AppBundle:Presentation:add }
+
