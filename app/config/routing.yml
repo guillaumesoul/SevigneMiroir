@@ -1,3 +1,7 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+prsentation_add:
+    path:      /add
+    defaults:  { _controller: AppBundle:Presentation:add }

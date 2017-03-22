@@ -6,7 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class DefaultController extends Controller
+class PresentationController extends Controller
 {
     /**
      * @Route("/", name="homepage")
@@ -21,7 +21,7 @@ class DefaultController extends Controller
 
     public function addAction()
     {
-        return $this->render('default/add.html.twig', array(
+        return $this->render('presentation/add.html.twig', array(
             'variable_name' => 'variable_value',
         ));
     }
