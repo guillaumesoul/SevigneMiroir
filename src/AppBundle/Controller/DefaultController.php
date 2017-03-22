@@ -18,4 +18,14 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
         ]);
     }
+
+    /**
+     * @Route("/add", name="add")
+     */
+    public function addPresentationAction()
+    {
+        return $this->render('default/add.html.twig', array(
+            'variable_name' => 'variable_value',
+        ));
+    }
 }
