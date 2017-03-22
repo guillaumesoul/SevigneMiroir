@@ -13,7 +13,12 @@ class PresentationController extends Controller
 
     public function indexAction(Request $request)
     {
-        return $this->render('presentation/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $presentations = $em->getRepository('AppBundle:Presentation')->findAll();
+
+        return $this->render('presentation/index.html.twig', [
+            'presentations' => $presentations
+        ]);
     }
 
     public function addAction(Request $request)
@@ -29,7 +34,7 @@ class PresentationController extends Controller
             $em->persist($presentation);
             $em->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('presentation_index');
         }
 
         return $this->render('presentation/add.html.twig', array(

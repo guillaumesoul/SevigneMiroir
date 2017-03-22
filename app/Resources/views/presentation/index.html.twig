@@ -2,6 +2,11 @@
 
 {% block body %}
     <div>
-        Je vais lister toutes mes présentations ici
+        Toutes mes présentations :
+    </div>
+    <div>
+        {% for presentation in presentations %}
+            <li>{{ presentation.name }}</li>
+        {% endfor %}
     </div>
 {% endblock %}
