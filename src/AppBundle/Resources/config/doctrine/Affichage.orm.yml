@@ -1,0 +1,19 @@
+AppBundle\Entity\Affichage:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\AffichageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        heureDebut:
+            type: time
+        heurdeFin:
+            type: time
+    lifecycleCallbacks: {  }
