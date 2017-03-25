@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Presentation;
-use AppBundle\Form\AffichageType;
 use AppBundle\Form\PresentationType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -70,6 +69,7 @@ class PresentationController extends Controller
         //il faut que je liste les présentations enregistrées
         $em = $this->getDoctrine()->getManager();
         $presentations = $em->getRepository('AppBundle:Presentation')->findAll();
+        $affichages = $em->getRepository('AppBundle:Affichage')->findAll();
 
         $form = $this->createForm(AffichageType::class);
         $form->handleRequest($request);
@@ -81,11 +81,12 @@ class PresentationController extends Controller
             $em->persist($presentation);
             $em->flush();
 
-            return $this->redirectToRoute('presentation_manage');
+            return $this->redirectToRoute('affichage_manage');
         }
 
         return $this->render('presentation/manage.html.twig', [
             'presentations' => $presentations,
+            'affichages' => $affichages,
             'form' => $form->createView()
         ]);
     }

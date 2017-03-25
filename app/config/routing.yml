@@ -14,7 +14,11 @@ presentation_add:
     path:      /presentation/add
     defaults:  { _controller: AppBundle:Presentation:add }
 
-presentation_manage:
-    path:      /presentation/manage
-    defaults:  { _controller: AppBundle:Presentation:manage }
+affichage_index:
+    path:      /affichage
+    defaults:  { _controller: AppBundle:Affichage:index }
+
+affichage_manage:
+    path:      /affichage/manage
+    defaults:  { _controller: AppBundle:Affichage:manage }
 

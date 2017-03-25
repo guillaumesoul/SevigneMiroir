@@ -2,9 +2,7 @@
 
 {% block body %}
     <div>
-        Toutes mes présentations :
-    </div>
-    <div>
+        <h1>Liste des présentations</h1>
         {% for presentation in presentations %}
             <li>{{ presentation.name }}</li>
         {% endfor %}

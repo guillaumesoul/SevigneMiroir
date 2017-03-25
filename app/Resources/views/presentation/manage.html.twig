@@ -2,9 +2,17 @@
 
 {% block body %}
     <div>
-        Je vais organiser mes présentations ici (lesquelles affichées par tranches horaires, dans quel ordre, etc...)
+        {# TODO affichage des affichages sous forme de vignettes #}
+        <h1>Liste des affichages</h1>
+        <ul>
+            {% for affichage in affichages %}
+                <a href="/presentation/manage/{{ affichage.id }}">{{ affichage.name }}</a>
+            {% endfor %}
+        </ul>
     </div>
     <div>
+
+        <h1>Liste des présentations</h1>
         <ul id="sortable">
             {% for presentation in presentations %}
                 <li class="ui-state-default" id="{{ presentation.id }}"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>{{ presentation.name }}</li>
@@ -13,11 +21,6 @@
     </div>
     <div>
         <button id="getOrder">Get Order</button>
-    </div>
-    <div>
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
     </div>
 {% endblock %}
 

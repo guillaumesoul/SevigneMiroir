@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        <h1>Ajout d'un affichage</h1>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+    <div>
+        <h1>Liste des affichages</h1>
+        {% for affichage in affichages %}
+            <li>{{ affichage.name }}</li>
+        {% endfor %}
+    </div>
+{% endblock %}
