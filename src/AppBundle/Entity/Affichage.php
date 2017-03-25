@@ -110,4 +110,3 @@ class Affichage
         return $this->heurdeFin;
     }
 }
-

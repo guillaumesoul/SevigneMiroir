@@ -27,6 +27,11 @@ class Presentation
      */
     private $active;
 
+    /**
+     * @var \AppBundle\Entity\Category
+     */
+    private $category;
+
 
     /**
      * Get id
@@ -109,5 +114,28 @@ class Presentation
     {
         return $this->active;
     }
-}
 
+    /**
+     * Set category
+     *
+     * @param \AppBundle\Entity\Category $category
+     *
+     * @return Presentation
+     */
+    public function setCategory(\AppBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AppBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+}

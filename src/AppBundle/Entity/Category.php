@@ -17,6 +17,10 @@ class Category
      */
     private $name;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $presentations;
 
     /**
      * Get id
@@ -51,5 +55,46 @@ class Category
     {
         return $this->name;
     }
-}
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->presentations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add presentation
+     *
+     * @param \AppBundle\Entity\Presentation $presentation
+     *
+     * @return Category
+     */
+    public function addPresentation(\AppBundle\Entity\Presentation $presentation)
+    {
+        $this->presentations[] = $presentation;
+
+        return $this;
+    }
+
+    /**
+     * Remove presentation
+     *
+     * @param \AppBundle\Entity\Presentation $presentation
+     */
+    public function removePresentation(\AppBundle\Entity\Presentation $presentation)
+    {
+        $this->presentations->removeElement($presentation);
+    }
+
+    /**
+     * Get presentations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPresentations()
+    {
+        return $this->presentations;
+    }
+}

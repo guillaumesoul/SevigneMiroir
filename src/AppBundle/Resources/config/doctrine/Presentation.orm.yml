@@ -17,4 +17,11 @@ AppBundle\Entity\Presentation:
             length: '512'
         active:
             type: boolean
+    manyToOne:
+        category:
+            targetEntity: Category
+            inversedBy: presentations
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
     lifecycleCallbacks: {  }

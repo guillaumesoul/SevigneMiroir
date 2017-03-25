@@ -12,4 +12,9 @@ AppBundle\Entity\Category:
         name:
             type: string
             length: 255
+
+    oneToMany:
+        presentations:
+            targetEntity: Presentation
+            mappedBy: category
     lifecycleCallbacks: {  }
