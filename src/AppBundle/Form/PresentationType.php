@@ -18,7 +18,7 @@ class PresentationType extends AbstractType
             ->add('name')
             ->add('url')
             ->add('active')
-            ->add('save', SubmitType::class, array('label' => 'Ajouter Présentation'));
+            ->add('save', SubmitType::class, array('label' => 'Ajouter Affichage'));
     }
     
     /**

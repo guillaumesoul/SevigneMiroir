@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Presentation;
+use AppBundle\Form\AffichageType;
 use AppBundle\Form\PresentationType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -61,16 +62,31 @@ class PresentationController extends Controller
      * définir les présentations actives
      * faire des groupes de présentations (un groupe comprenant plusieurs présentations qui vont défiler les unes après les autres)
      *
+     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function manageAction()
+    public function manageAction(Request $request)
     {
         //il faut que je liste les présentations enregistrées
         $em = $this->getDoctrine()->getManager();
         $presentations = $em->getRepository('AppBundle:Presentation')->findAll();
 
+        $form = $this->createForm(AffichageType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $presentation = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($presentation);
+            $em->flush();
+
+            return $this->redirectToRoute('presentation_manage');
+        }
+
         return $this->render('presentation/manage.html.twig', [
-            'presentations' => $presentations
+            'presentations' => $presentations,
+            'form' => $form->createView()
         ]);
     }
 }

@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class AffichageType extends AbstractType
 {
@@ -13,7 +14,11 @@ class AffichageType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('heureDebut')->add('heurdeFin')        ;
+        $builder
+            ->add('name')
+            ->add('heureDebut')
+            ->add('heurdeFin')
+            ->add('save', SubmitType::class, array('label' => 'Ajouter Présentation'));
     }
     
     /**
