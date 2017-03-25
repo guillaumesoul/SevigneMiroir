@@ -19,6 +19,6 @@ affichage_index:
     defaults:  { _controller: AppBundle:Affichage:index }
 
 affichage_manage:
-    path:      /affichage/manage
+    path:      /affichage/{affichageId}
     defaults:  { _controller: AppBundle:Affichage:manage }
 

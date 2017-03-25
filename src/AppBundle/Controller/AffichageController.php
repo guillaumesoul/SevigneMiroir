@@ -41,4 +41,25 @@ class AffichageController extends Controller
         ]);
 
     }
+
+    /**
+     * permet d'organiser les présentations
+     * définir les présentations actives
+     * faire des groupes de présentations (un groupe comprenant plusieurs présentations qui vont défiler les unes après les autres)
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function manageAction($affichageId)
+    {
+        //il faut que je liste les présentations enregistrées
+        $em = $this->getDoctrine()->getManager();
+        $affichage = $em->getRepository('AppBundle:Affichage')->find($affichageId);
+        $presentations = $em->getRepository('AppBundle:Presentation')->findAll();
+
+        return $this->render('presentation/manage.html.twig', [
+            'presentations' => $presentations,
+            'affichages' => $affichage
+        ]);
+    }
 }

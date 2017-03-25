@@ -2,15 +2,6 @@
 
 {% block body %}
     <div>
-        {# TODO affichage des affichages sous forme de vignettes #}
-        <h1>Liste des affichages</h1>
-        <ul>
-            {% for affichage in affichages %}
-                <a href="/presentation/manage/{{ affichage.id }}">{{ affichage.name }}</a>
-            {% endfor %}
-        </ul>
-    </div>
-    <div>
 
         <h1>Liste des présentations</h1>
         <ul id="sortable">

@@ -8,9 +8,10 @@
         {{ form_end(form) }}
     </div>
     <div>
+        {# TODO affichage sous forme de vignettes #}
         <h1>Liste des affichages</h1>
         {% for affichage in affichages %}
-            <li>{{ affichage.name }}</li>
+            <a href="/affichage/{{ affichage.id }}">{{ affichage.name }}</a>
         {% endfor %}
     </div>
 {% endblock %}
