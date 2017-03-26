@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div>
+    {#<div>
 
         <h1>Liste des présentations</h1>
         <ul id="sortable">
@@ -13,6 +13,54 @@
     <div>
         <button id="getOrder">Get Order</button>
     </div>
+    <hr>
+    <div id="drag">
+        <p>2lément à déposer</p>
+    </div>
+
+    <div id="drop" style="border-style: solid; border-width: 1 px;">
+        <p>Déposer ici</p>
+    </div>#}
+
+    <div id="container">
+
+        <h4>Draggable area</h4>
+        <div id="qlist">
+            <div class="qitem">
+                <span data-item="1" class="question">option 1</span>
+            </div>
+            <div class="qitem">
+                <span data-item="2" class="question">option 2</span>
+            </div>
+            <div class="qitem">
+                <span data-item="3" class="question">option 3</span>
+            </div>
+            <div class="qitem">
+                <span data-item="4" class="question">option 4</span>
+            </div>
+            <div class="qitem">
+                <span data-item="5" class="question">option 5</span>
+            </div>
+            <div class="qitem">
+                <span data-item="6" class="question">option 6</span>
+            </div>
+        </div>
+
+        <br/>
+
+        <div id="sorting">
+            <h4>Droppable area</h4>
+            <div class="qselected"></div>
+            <div class="qselected"></div>
+            <div class="qselected"></div>
+            <div class="qselected"></div>
+            <div class="qselected"></div>
+            <div class="qselected"></div>
+        </div>
+
+    </div>
+
+
 {% endblock %}
 
 

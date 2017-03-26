@@ -5,3 +5,34 @@
 #menu li{
     display: inline-block;
 }
+
+
+
+.qitem {
+    border: 1px black solid;
+}
+
+.qselected {
+    display: inline-block;
+    margin: 1px;
+}
+
+.qselected .qitem {
+    width: 100%;
+    height: 30px;
+    background: #ccc;
+    text-align: center;
+}
+
+.qselected {
+    width: 100%;
+    height: 30px;
+    border: 1px black solid;
+    vertical-align: top;
+}
+
+#qlist .qitem {
+    width: 16%;
+    height: 30px;
+    float: left;
+}
