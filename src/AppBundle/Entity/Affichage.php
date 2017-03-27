@@ -25,7 +25,7 @@ class Affichage
     /**
      * @var \DateTime
      */
-    private $heurdeFin;
+    private $heureFin;
 
 
     /**
@@ -87,26 +87,26 @@ class Affichage
     }
 
     /**
-     * Set heurdeFin
+     * Set heureFin
      *
-     * @param \DateTime $heurdeFin
+     * @param \DateTime $heureFin
      *
      * @return Affichage
      */
-    public function setHeurdeFin($heurdeFin)
+    public function setHeureFin($heureFin)
     {
-        $this->heurdeFin = $heurdeFin;
+        $this->heureFin = $heureFin;
 
         return $this;
     }
 
     /**
-     * Get heurdeFin
+     * Get heureFin
      *
      * @return \DateTime
      */
-    public function getHeurdeFin()
+    public function getHeureFin()
     {
-        return $this->heurdeFin;
+        return $this->heureFin;
     }
 }

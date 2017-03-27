@@ -17,8 +17,8 @@ class AffichageType extends AbstractType
         $builder
             ->add('name')
             ->add('heureDebut')
-            ->add('heurdeFin')
-            ->add('save', SubmitType::class, array('label' => 'Ajouter Présentation'));
+            ->add('heureFin')
+            ->add('save', SubmitType::class, array('label' => 'Save'));
     }
     
     /**

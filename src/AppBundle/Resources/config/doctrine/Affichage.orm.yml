@@ -14,7 +14,7 @@ AppBundle\Entity\Affichage:
             length: 255
         heureDebut:
             type: time
-        heurdeFin:
+        heureFin:
             type: time
 
     lifecycleCallbacks: {  }

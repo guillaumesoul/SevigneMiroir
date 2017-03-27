@@ -14,8 +14,15 @@
 
     <div>
         <h4>Organiser un groupe de présentations</h4>
+        {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.heureDebut) }}
+        {{ form_row(form.heureFin) }}
         <ul id='sortable'>
         </ul>
+        {{ form_row(form.save) }}
+        {{ form_end(form) }}
+
     </div>
 
     <div>
