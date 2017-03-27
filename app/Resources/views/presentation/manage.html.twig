@@ -4,21 +4,21 @@
     <div>
         <h4>Liste des présentations</h4>
         {% for presentation in presentations %}
-            <span class="mdl-chip">
-                    <span class="mdl-chip__text">{{ presentation.name }}</span>
-                    <a href="#" class="mdl-chip__action" data-presentation-id="{{ presentation.id }}" data-presentation-name="{{ presentation.name }}"><i class="material-icons">add</i></a>
-                </span>
+            <span class='mdl-chip'>
+                <span class='mdl-chip__text'>{{ presentation.name }}</span>
+                <a href='#' class='mdl-chip__action' data-action='add' data-presentation-id='{{ presentation.id }}' data-presentation-name='{{ presentation.name }}'><i class='material-icons'>add</i></a>
+            </span>
         {% endfor %}
     </div>
 
     <div>
         <h4>Organiser un groupe de présentations</h4>
-        <ul id="sortable">
+        <ul id='sortable'>
         </ul>
     </div>
 
     <div>
-        <button id="getOrder">Get Order</button>
+        <button id='getOrder'>Get Order</button>
     </div>
 
 
