@@ -1,5 +1,12 @@
 $(document).ready(function() {
-    console.log( "ready!" );
+
+    $('.mdl-chip__action').on('click', function() {
+        var link = $(this);
+        var presentationId = link.attr('data-presentation-id');
+        var presentationName = link.attr('data-presentation-name');
+        var itemToInsert = '<li class="ui-state-default" id="' + presentationId + '"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>' + presentationName + '</li>';
+        $('#sortable').append(itemToInsert);
+    });
 
     //permet de faire du drag and drop et de detecter l'ordre des elements
     $( "#sortable" ).sortable();
@@ -10,7 +17,7 @@ $(document).ready(function() {
 
 
     //permet de deplacer un element dans la zone qui indique quelles sont les presentations selectionnees pour l'affichage
-    $('#drag').draggable();
+    /*$('#drag').draggable();
     $('.ui-state-default').draggable();
     $('#not-drag').draggable();
 
@@ -19,8 +26,7 @@ $(document).ready(function() {
         drop : function(){
             console.log('element déposé');
         }
-    });
-
+    });*/
 
 
 
