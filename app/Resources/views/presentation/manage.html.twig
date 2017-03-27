@@ -3,6 +3,7 @@
 {% block body %}
     <div>
         <h4>Liste des présentations</h4>
+        {# TODO ajouter durée présentation estimée + nb de slides peut etre en tooltip #}
         {% for presentation in presentations %}
             <span class='mdl-chip'>
                 <span class='mdl-chip__text'>{{ presentation.name }}</span>
