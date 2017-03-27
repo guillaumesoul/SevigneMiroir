@@ -13,7 +13,7 @@ $(document).ready(function() {
                 var itemToInsert = "" +
                     "<span class='mdl-chip' id='" + presentationId + "'>" +
                     "<span class='mdl-chip__text'>" + presentationName + "</span>" +
-                    "<a href='#' class='mdl-chip__action' data-action='remove' '><i class='material-icons'>cancel</i></a>" +
+                    "<a href='#' class='mdl-chip__action js-selected-presentation' data-action='remove' '><i class='material-icons'>cancel</i></a>" +
                     "</span>";
                 $('#sortable').append(itemToInsert);
                 break;
@@ -26,8 +26,23 @@ $(document).ready(function() {
 
 
     $('#getOrder').on('click', function () {
-        var test = $( "#sortable" ).sortable('toArray');
-        console.log(test);
+        var presentationOrder = $( "#sortable" ).sortable('toArray');
+
+        $.ajax({
+            method: 'post',
+            data: {
+                presentationOrder: presentationOrder
+            },
+            success: function() {
+                console.log('success');
+            },
+            error: function () {
+                console.log('error');
+            }
+        })
+        //quand je clique sur save je récupère l'ordre des prséentations et les ajoute dans un param post et jen'envoi en requête ajax
+
+
     });
 
 

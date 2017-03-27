@@ -27,9 +27,9 @@ class AffichageController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $presentation = $form->getData();
+            $affichages = $form->getData();
             $em = $this->getDoctrine()->getManager();
-            $em->persist($presentation);
+            $em->persist($affichages);
             $em->flush();
 
             return $this->redirectToRoute('affichage_index');
@@ -59,6 +59,21 @@ class AffichageController extends Controller
 
         $form = $this->createForm(AffichageType::class, $affichage);
         $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $affichages = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($affichages);
+            $em->flush();
+
+            return $this->redirectToRoute('affichage_index');
+        }
+
+        //si les presentation sont definies les enregistrees
+        if($request->request->has('presentationOrder')) {
+            $presentationOrder = $test = $request->request->get('presentationOrder');
+        }
 
         return $this->render('presentation/manage.html.twig', [
             'presentations' => $presentations,
