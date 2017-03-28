@@ -35,14 +35,14 @@ class Presentation
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $series;
+    private $affichages;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->series = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->affichages = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -153,36 +153,36 @@ class Presentation
     }
 
     /**
-     * Add series
+     * Add affichages
      *
-     * @param \AppBundle\Entity\Serie $series
+     * @param \AppBundle\Entity\Affichage $affichages
      *
      * @return Presentation
      */
-    public function addSeries(\AppBundle\Entity\Serie $series)
+    public function addAffichages(\AppBundle\Entity\Affichage $affichages)
     {
-        $this->series[] = $series;
+        $this->affichages[] = $affichages;
 
         return $this;
     }
 
     /**
-     * Remove series
+     * Remove affichages
      *
-     * @param \AppBundle\Entity\Serie $series
+     * @param \AppBundle\Entity\Affichage $affichages
      */
-    public function removeSeries(\AppBundle\Entity\Serie $series)
+    public function removeAffichages(\AppBundle\Entity\Affichage $affichages)
     {
-        $this->series->removeElement($series);
+        $this->affichages->removeElement($affichages);
     }
 
     /**
-     * Get series
+     * Get affichages
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getSeries()
+    public function getAffichages()
     {
-        return $this->series;
+        return $this->affichages;
     }
 }

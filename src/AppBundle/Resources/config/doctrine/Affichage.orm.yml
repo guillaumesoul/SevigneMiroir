@@ -9,16 +9,20 @@ AppBundle\Entity\Affichage:
             generator:
                 strategy: AUTO
     fields:
-        name:
-            type: string
-            length: 255
-        heureDebut:
-            type: time
-        heureFin:
-            type: time
-    oneToMany:
-        series:
+        position:
+            type: integer
+    manyToOne:
+        serie:
             targetEntity: Serie
-            mappedBy: affichage
+            inversedBy: affichages
+            joinColumn:
+                name: serie_id
+                referencedColumnName: id
+        presentation:
+            targetEntity: Presentation
+            inversedBy: affichages
+            joinColumn:
+                name: presentation_id
+                referencedColumnName: id
 
     lifecycleCallbacks: {  }

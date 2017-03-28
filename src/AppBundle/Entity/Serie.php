@@ -3,7 +3,7 @@
 namespace AppBundle\Entity;
 
 /**
- * Serie
+ * Affichage
  */
 class Serie
 {
@@ -13,19 +13,32 @@ class Serie
     private $id;
 
     /**
-     * @var int
+     * @var string
      */
-    private $position;
+    private $name;
 
     /**
-     * @var \AppBundle\Entity\Affichage
+     * @var \DateTime
      */
-    private $affichage;
+    private $heureDebut;
 
     /**
-     * @var \AppBundle\Entity\Presentation
+     * @var \DateTime
      */
-    private $presentation;
+    private $heureFin;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $affichages;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->affichages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
@@ -39,75 +52,109 @@ class Serie
     }
 
     /**
-     * Set position
+     * Set name
      *
-     * @param integer $position
+     * @param string $name
      *
-     * @return Serie
+     * @return Affichage
      */
-    public function setPosition($position)
+    public function setName($name)
     {
-        $this->position = $position;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get position
+     * Get name
      *
-     * @return int
+     * @return string
      */
-    public function getPosition()
+    public function getName()
     {
-        return $this->position;
+        return $this->name;
     }
 
-
     /**
-     * Set affichage
+     * Set heureDebut
      *
-     * @param \AppBundle\Entity\Affichage $affichage
+     * @param \DateTime $heureDebut
      *
-     * @return Serie
+     * @return Affichage
      */
-    public function setAffichage(\AppBundle\Entity\Affichage $affichage = null)
+    public function setHeureDebut($heureDebut)
     {
-        $this->affichage = $affichage;
+        $this->heureDebut = $heureDebut;
 
         return $this;
     }
 
     /**
-     * Get affichage
+     * Get heureDebut
      *
-     * @return \AppBundle\Entity\Affichage
+     * @return \DateTime
      */
-    public function getAffichage()
+    public function getHeureDebut()
     {
-        return $this->affichage;
+        return $this->heureDebut;
     }
 
     /**
-     * Set presentation
+     * Set heureFin
      *
-     * @param \AppBundle\Entity\Presentation $presentation
+     * @param \DateTime $heureFin
      *
-     * @return Serie
+     * @return Affichage
      */
-    public function setPresentation(\AppBundle\Entity\Presentation $presentation = null)
+    public function setHeureFin($heureFin)
     {
-        $this->presentation = $presentation;
+        $this->heureFin = $heureFin;
 
         return $this;
     }
 
     /**
-     * Get presentation
+     * Get heureFin
      *
-     * @return \AppBundle\Entity\Presentation
+     * @return \DateTime
      */
-    public function getPresentation()
+    public function getHeureFin()
     {
-        return $this->presentation;
+        return $this->heureFin;
+    }
+
+
+    /**
+     * Add affichages
+     *
+     * @param \AppBundle\Entity\Affichage $affichages
+     *
+     * @return Affichage
+     */
+    public function addAffichages(\AppBundle\Entity\Affichage $affichages)
+    {
+        $this->affichages[] = $affichages;
+
+        return $this;
+    }
+
+    /**
+     * Remove affichages
+     *
+     * @param \AppBundle\Entity\Affichage $affichages
+     */
+    public function removeAffichages(\AppBundle\Entity\Affichage $affichages)
+    {
+        $this->affichages->removeElement($affichages);
+    }
+
+    /**
+     * Get affichages
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAffichages()
+    {
+        return $this->affichages;
     }
 }

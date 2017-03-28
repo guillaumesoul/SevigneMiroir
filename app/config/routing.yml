@@ -15,10 +15,10 @@ presentation_add:
     defaults:  { _controller: AppBundle:Presentation:add }
 
 affichage_index:
-    path:      /affichage
-    defaults:  { _controller: AppBundle:Affichage:index }
+    path:      /serie
+    defaults:  { _controller: AppBundle:Serie:index }
 
 affichage_manage:
-    path:      /affichage/{affichageId}
-    defaults:  { _controller: AppBundle:Affichage:manage }
+    path:      /serie/{serieId}
+    defaults:  { _controller: AppBundle:Serie:manage }
 

@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class AffichageType extends AbstractType
+class SerieType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -27,7 +27,7 @@ class AffichageType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Affichage'
+            'data_class' => 'AppBundle\Entity\Serie'
         ));
     }
 
@@ -36,7 +36,7 @@ class AffichageType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_affichage';
+        return 'appbundle_serie';
     }
 
 

@@ -3,17 +3,17 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Serie;
-use AppBundle\Form\AffichageType;
+use AppBundle\Form\SerieType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class AffichageController extends Controller
+class SerieController extends Controller
 {
 
 
     /**
-     * permet de lister tous les affichages enregistrés en base de données
+     * permet de lister tous les series enregistrés en base de données
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -21,23 +21,23 @@ class AffichageController extends Controller
     {
         //il faut que je liste les présentations enregistrées
         $em = $this->getDoctrine()->getManager();
-        $affichages = $em->getRepository('AppBundle:Affichage')->findAll();
+        $series = $em->getRepository('AppBundle:Serie')->findAll();
 
-        $form = $this->createForm(AffichageType::class);
+        $form = $this->createForm(SerieType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $affichages = $form->getData();
+            $series = $form->getData();
             $em = $this->getDoctrine()->getManager();
-            $em->persist($affichages);
+            $em->persist($series);
             $em->flush();
 
-            return $this->redirectToRoute('affichage_index');
+            return $this->redirectToRoute('serie_index');
         }
 
-        return $this->render('affichage/index.html.twig', [
-            'affichages' => $affichages,
+        return $this->render('serie/index.html.twig', [
+            'series' => $series,
             'form' => $form->createView()
         ]);
 
@@ -51,24 +51,24 @@ class AffichageController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function manageAction($affichageId, Request $request)
+    public function manageAction($serieId, Request $request)
     {
         //il faut que je liste les présentations enregistrées
         $em = $this->getDoctrine()->getManager();
-        $affichage = $em->getRepository('AppBundle:Affichage')->find($affichageId);
+        $serie = $em->getRepository('AppBundle:Serie')->find($serieId);
         $presentations = $em->getRepository('AppBundle:Presentation')->findAll();
 
-        $form = $this->createForm(AffichageType::class, $affichage);
+        $form = $this->createForm(SerieType::class, $serie);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $affichages = $form->getData();
+            $series = $form->getData();
             $em = $this->getDoctrine()->getManager();
-            $em->persist($affichages);
+            $em->persist($series);
             $em->flush();
 
-            return $this->redirectToRoute('affichage_index');
+            return $this->redirectToRoute('serie_index');
         }
 
         //si les presentation sont definies les enregistrees
@@ -86,7 +86,7 @@ class AffichageController extends Controller
                 //je cree une nouvelle serie
                 $serie = new Serie();
                 $serie->setPosition($position);
-                $serie->setAffichage($affichage);
+                $serie->setSerie($serie);
                 if(isset($indexedTabSelectedPresentations[$presOrder])) {
                     $serie->setPresentation($indexedTabSelectedPresentations[$presOrder]);
                 }
@@ -99,7 +99,7 @@ class AffichageController extends Controller
 
         return $this->render('presentation/manage.html.twig', [
             'presentations' => $presentations,
-            'affichages' => $affichage,
+            'series' => $serie,
             'form' => $form->createView()
         ]);
     }
