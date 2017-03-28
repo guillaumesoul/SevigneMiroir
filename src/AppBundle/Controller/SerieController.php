@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Serie;
 use AppBundle\Form\SerieType;
+use AppBundle\Entity\Affichage;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -84,17 +85,16 @@ class SerieController extends Controller
             $position = 0;
             foreach ($presentationOrder as $presOrder) {
                 //je cree une nouvelle serie
-                $serie = new Serie();
-                $serie->setPosition($position);
-                $serie->setSerie($serie);
+                $affichage = new Affichage();
+                $affichage->setPosition($position);
+                $affichage->setSerie($serie);
                 if(isset($indexedTabSelectedPresentations[$presOrder])) {
-                    $serie->setPresentation($indexedTabSelectedPresentations[$presOrder]);
+                    $affichage->setPresentation($indexedTabSelectedPresentations[$presOrder]);
                 }
+                $em->persist($affichage);
                 $position++;
             }
-            $za = 'sq';
-
-
+            $em->flush();
         }
 
         return $this->render('presentation/manage.html.twig', [
