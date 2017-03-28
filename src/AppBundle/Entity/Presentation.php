@@ -35,14 +35,14 @@ class Presentation
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $presentation;
+    private $series;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->presentation = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->series = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -153,36 +153,36 @@ class Presentation
     }
 
     /**
-     * Add presentation
+     * Add series
      *
-     * @param \AppBundle\Entity\Serie $presentation
+     * @param \AppBundle\Entity\Serie $series
      *
      * @return Presentation
      */
-    public function addPresentation(\AppBundle\Entity\Serie $presentation)
+    public function addSeries(\AppBundle\Entity\Serie $series)
     {
-        $this->presentation[] = $presentation;
+        $this->series[] = $series;
 
         return $this;
     }
 
     /**
-     * Remove presentation
+     * Remove series
      *
-     * @param \AppBundle\Entity\Serie $presentation
+     * @param \AppBundle\Entity\Serie $series
      */
-    public function removePresentation(\AppBundle\Entity\Serie $presentation)
+    public function removeSeries(\AppBundle\Entity\Serie $series)
     {
-        $this->presentation->removeElement($presentation);
+        $this->series->removeElement($series);
     }
 
     /**
-     * Get presentation
+     * Get series
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getPresentation()
+    public function getSeries()
     {
-        return $this->presentation;
+        return $this->series;
     }
 }

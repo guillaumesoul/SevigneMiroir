@@ -25,8 +25,8 @@ AppBundle\Entity\Presentation:
                 name: category_id
                 referencedColumnName: id
     oneToMany:
-        presentation:
+        series:
             targetEntity: Serie
-            mappedBy: serie
+            mappedBy: presentation
 
     lifecycleCallbacks: {  }

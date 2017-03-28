@@ -30,14 +30,14 @@ class Affichage
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $serie;
+    private $series;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->serie = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->series = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -123,37 +123,38 @@ class Affichage
         return $this->heureFin;
     }
 
+
     /**
-     * Add serie
+     * Add series
      *
-     * @param \AppBundle\Entity\Serie $serie
+     * @param \AppBundle\Entity\Serie $series
      *
      * @return Affichage
      */
-    public function addSerie(\AppBundle\Entity\Serie $serie)
+    public function addSeries(\AppBundle\Entity\Serie $series)
     {
-        $this->serie[] = $serie;
+        $this->series[] = $series;
 
         return $this;
     }
 
     /**
-     * Remove serie
+     * Remove series
      *
-     * @param \AppBundle\Entity\Serie $serie
+     * @param \AppBundle\Entity\Serie $series
      */
-    public function removeSerie(\AppBundle\Entity\Serie $serie)
+    public function removeSeries(\AppBundle\Entity\Serie $series)
     {
-        $this->serie->removeElement($serie);
+        $this->series->removeElement($series);
     }
 
     /**
-     * Get serie
+     * Get series
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getSerie()
+    public function getSeries()
     {
-        return $this->serie;
+        return $this->series;
     }
 }
