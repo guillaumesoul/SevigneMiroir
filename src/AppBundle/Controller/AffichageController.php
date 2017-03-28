@@ -72,7 +72,7 @@ class AffichageController extends Controller
 
         //si les presentation sont definies les enregistrees
         if($request->request->has('presentationOrder')) {
-            $presentationOrder = $test = $request->request->get('presentationOrder');
+            $presentationOrder = $request->request->get('presentationOrder');
         }
 
         return $this->render('presentation/manage.html.twig', [

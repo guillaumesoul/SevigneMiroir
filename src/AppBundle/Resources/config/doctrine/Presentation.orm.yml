@@ -24,4 +24,16 @@ AppBundle\Entity\Presentation:
             joinColumn:
                 name: category_id
                 referencedColumnName: id
+    manyToMany:
+        affichagesPresentation:
+            targetEntity: Affichage
+            inversedBy: presentationsAffichage
+            joinTable:
+                name: presentations_affichages
+                joinColumns:
+                    presentation_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    affichage_id:
+                        referencedColumnName: id
     lifecycleCallbacks: {  }

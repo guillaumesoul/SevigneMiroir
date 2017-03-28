@@ -138,4 +138,50 @@ class Presentation
     {
         return $this->category;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $affichagesPresentation;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->affichagesPresentation = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add affichagesPresentation
+     *
+     * @param \AppBundle\Entity\Affichage $affichagesPresentation
+     *
+     * @return Presentation
+     */
+    public function addAffichagesPresentation(\AppBundle\Entity\Affichage $affichagesPresentation)
+    {
+        $this->affichagesPresentation[] = $affichagesPresentation;
+
+        return $this;
+    }
+
+    /**
+     * Remove affichagesPresentation
+     *
+     * @param \AppBundle\Entity\Affichage $affichagesPresentation
+     */
+    public function removeAffichagesPresentation(\AppBundle\Entity\Affichage $affichagesPresentation)
+    {
+        $this->affichagesPresentation->removeElement($affichagesPresentation);
+    }
+
+    /**
+     * Get affichagesPresentation
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAffichagesPresentation()
+    {
+        return $this->affichagesPresentation;
+    }
 }

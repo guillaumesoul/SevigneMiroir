@@ -109,4 +109,50 @@ class Affichage
     {
         return $this->heureFin;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $presentationsAffichage;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->presentationsAffichage = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add presentationsAffichage
+     *
+     * @param \AppBundle\Entity\Presentation $presentationsAffichage
+     *
+     * @return Affichage
+     */
+    public function addPresentationsAffichage(\AppBundle\Entity\Presentation $presentationsAffichage)
+    {
+        $this->presentationsAffichage[] = $presentationsAffichage;
+
+        return $this;
+    }
+
+    /**
+     * Remove presentationsAffichage
+     *
+     * @param \AppBundle\Entity\Presentation $presentationsAffichage
+     */
+    public function removePresentationsAffichage(\AppBundle\Entity\Presentation $presentationsAffichage)
+    {
+        $this->presentationsAffichage->removeElement($presentationsAffichage);
+    }
+
+    /**
+     * Get presentationsAffichage
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPresentationsAffichage()
+    {
+        return $this->presentationsAffichage;
+    }
 }

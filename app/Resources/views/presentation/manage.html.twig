@@ -15,19 +15,14 @@
     <div>
         <h4>Organiser un groupe de présentations</h4>
         {{ form_start(form) }}
-        {{ form_row(form.name) }}
-        {{ form_row(form.heureDebut) }}
-        {{ form_row(form.heureFin) }}
-        <ul id='sortable'>
-            {#<input type="text" id="1" name="1" value="1">
-            <input type="text" id="2" name="2" value="1">#}
-        </ul>
-        {{ form_row(form.save) }}
+        {{ form_widget(form) }}
         {{ form_end(form) }}
 
     </div>
 
     <div>
+        <ul id='sortable'>
+        </ul>
         <button id='getOrder'>Get Order</button>
     </div>
 
