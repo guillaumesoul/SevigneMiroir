@@ -38,6 +38,21 @@ class Presentation
     private $affichages;
 
     /**
+     * @var integer
+     */
+    private $slidesNumber;
+
+    /**
+     * @var integer
+     */
+    private $slideTransitionDuration;
+
+    /**
+     * @var \DateTime
+     */
+    private $presentationDuration;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -184,5 +199,102 @@ class Presentation
     public function getAffichages()
     {
         return $this->affichages;
+    }
+
+
+    /**
+     * Set slidesNumber
+     *
+     * @param integer $slidesNumber
+     *
+     * @return Presentation
+     */
+    public function setSlidesNumber($slidesNumber)
+    {
+        $this->slidesNumber = $slidesNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get slidesNumber
+     *
+     * @return integer
+     */
+    public function getSlidesNumber()
+    {
+        return $this->slidesNumber;
+    }
+
+    /**
+     * Set slideTransitionDuration
+     *
+     * @param integer $slideTransitionDuration
+     *
+     * @return Presentation
+     */
+    public function setSlideTransitionDuration($slideTransitionDuration)
+    {
+        $this->slideTransitionDuration = $slideTransitionDuration;
+
+        return $this;
+    }
+
+    /**
+     * Get slideTransitionDuration
+     *
+     * @return integer
+     */
+    public function getSlideTransitionDuration()
+    {
+        return $this->slideTransitionDuration;
+    }
+
+    /**
+     * Set presentationDuration
+     *
+     * @param \DateTime $presentationDuration
+     *
+     * @return Presentation
+     */
+    public function setPresentationDuration($presentationDuration)
+    {
+        $this->presentationDuration = $presentationDuration;
+
+        return $this;
+    }
+
+    /**
+     * Get presentationDuration
+     *
+     * @return \DateTime
+     */
+    public function getPresentationDuration()
+    {
+        return $this->presentationDuration;
+    }
+
+    /**
+     * Add affichage
+     *
+     * @param \AppBundle\Entity\Affichage $affichage
+     *
+     * @return Presentation
+     */
+    public function addAffichage(\AppBundle\Entity\Affichage $affichage)
+    {
+        $this->affichages[] = $affichage;
+
+        return $this;
+    }
+
+    /**
+     * Remove affichage
+     *
+     * @param \AppBundle\Entity\Affichage $affichage
+     */
+    public function removeAffichage(\AppBundle\Entity\Affichage $affichage)
+    {
+        $this->affichages->removeElement($affichage);
     }
 }

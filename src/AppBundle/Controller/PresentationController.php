@@ -49,6 +49,8 @@ class PresentationController extends Controller
             return $this->redirectToRoute('presentation_index');
         }
 
+        $errors = $form->getErrors();
+
         return $this->render('presentation/add.html.twig', array(
             'form' => $form->createView(),
         ));

@@ -24,6 +24,8 @@ $(document).ready(function() {
         }
     });
 
+    // TODO detection automatique de la duree de presentation en fonction du nb de slides et de la durée de transition
+
 
     $('#getOrder').on('click', function () {
         var presentationOrder = $( "#sortable" ).sortable('toArray');

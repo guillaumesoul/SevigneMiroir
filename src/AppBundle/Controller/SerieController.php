@@ -59,6 +59,8 @@ class SerieController extends Controller
         $serie = $em->getRepository('AppBundle:Serie')->find($serieId);
         $presentations = $em->getRepository('AppBundle:Presentation')->findAll();
 
+        // TODO restitution des affichages et des position deja enregistrees en base de donnees
+
         $form = $this->createForm(SerieType::class, $serie);
         $form->handleRequest($request);
 

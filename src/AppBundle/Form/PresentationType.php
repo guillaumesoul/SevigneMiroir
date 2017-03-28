@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 
 class PresentationType extends AbstractType
 {
@@ -14,10 +15,16 @@ class PresentationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        // TODO rendre facultative la duree de presentation
         $builder
             ->add('name')
             ->add('url')
             ->add('active')
+            ->add('slidesNumber')
+            ->add('slideTransitionDuration')
+            ->add('presentationDuration', TimeType::class , array(
+                'with_seconds' => true
+            ))
             ->add('save', SubmitType::class, array('label' => 'Save'));
     }
     

@@ -17,6 +17,13 @@ AppBundle\Entity\Presentation:
             length: '512'
         active:
             type: boolean
+        slidesNumber:
+            type: integer
+        slideTransitionDuration:
+            type: integer
+        presentationDuration:
+            type: time
+
     manyToOne:
         category:
             targetEntity: Category
