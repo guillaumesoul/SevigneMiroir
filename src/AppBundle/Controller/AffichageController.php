@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Serie;
 use AppBundle\Form\AffichageType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -73,8 +74,25 @@ class AffichageController extends Controller
         //si les presentation sont definies les enregistrees
         if($request->request->has('presentationOrder')) {
             $presentationOrder = $request->request->get('presentationOrder');
-            //je veux donc enregistrer les relations presentations affichages
-            //TODO puis-je enregistrer plusieurs fois la même relation?
+            //je veux donc enregistrer les relations series
+            $selectedPresentations = $em->getRepository('AppBundle:Presentation')->findBy(array('id' => $presentationOrder));
+            $indexedTabSelectedPresentations = [];
+            foreach ($selectedPresentations as $pres) {
+                $indexedTabSelectedPresentations[$pres->getId()] = $pres;
+            }
+
+            $position = 0;
+            foreach ($presentationOrder as $presOrder) {
+                //je cree une nouvelle serie
+                $serie = new Serie();
+                $serie->setPosition($position);
+                $serie->setAffichage($affichage);
+                if(isset($indexedTabSelectedPresentations[$presOrder])) {
+                    $serie->setPresentation($indexedTabSelectedPresentations[$presOrder]);
+                }
+                $position++;
+            }
+            $za = 'sq';
 
 
         }
