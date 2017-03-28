@@ -27,6 +27,19 @@ class Affichage
      */
     private $heureFin;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $serie;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->serie = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 
     /**
      * Get id
@@ -109,50 +122,38 @@ class Affichage
     {
         return $this->heureFin;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $presentationsAffichage;
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->presentationsAffichage = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add presentationsAffichage
+     * Add serie
      *
-     * @param \AppBundle\Entity\Presentation $presentationsAffichage
+     * @param \AppBundle\Entity\Serie $serie
      *
      * @return Affichage
      */
-    public function addPresentationsAffichage(\AppBundle\Entity\Presentation $presentationsAffichage)
+    public function addSerie(\AppBundle\Entity\Serie $serie)
     {
-        $this->presentationsAffichage[] = $presentationsAffichage;
+        $this->serie[] = $serie;
 
         return $this;
     }
 
     /**
-     * Remove presentationsAffichage
+     * Remove serie
      *
-     * @param \AppBundle\Entity\Presentation $presentationsAffichage
+     * @param \AppBundle\Entity\Serie $serie
      */
-    public function removePresentationsAffichage(\AppBundle\Entity\Presentation $presentationsAffichage)
+    public function removeSerie(\AppBundle\Entity\Serie $serie)
     {
-        $this->presentationsAffichage->removeElement($presentationsAffichage);
+        $this->serie->removeElement($serie);
     }
 
     /**
-     * Get presentationsAffichage
+     * Get serie
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getPresentationsAffichage()
+    public function getSerie()
     {
-        return $this->presentationsAffichage;
+        return $this->serie;
     }
 }

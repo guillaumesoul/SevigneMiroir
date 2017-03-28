@@ -73,6 +73,10 @@ class AffichageController extends Controller
         //si les presentation sont definies les enregistrees
         if($request->request->has('presentationOrder')) {
             $presentationOrder = $request->request->get('presentationOrder');
+            //je veux donc enregistrer les relations presentations affichages
+            //TODO puis-je enregistrer plusieurs fois la même relation?
+
+
         }
 
         return $this->render('presentation/manage.html.twig', [

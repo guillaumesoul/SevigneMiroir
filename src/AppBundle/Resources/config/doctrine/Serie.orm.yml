@@ -1,0 +1,28 @@
+AppBundle\Entity\Serie:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\SerieRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        position:
+            type: integer
+    manyToOne:
+        affichage:
+            targetEntity: Affichage
+            inversedBy: serie
+            joinColumn:
+                name: affichage_id
+                referencedColumnName: id
+        presentation:
+            targetEntity: Presentation
+            inversedBy: serie
+            joinColumn:
+                name: presentation_id
+                referencedColumnName: id
+
+    lifecycleCallbacks: {  }

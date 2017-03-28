@@ -16,8 +16,9 @@ AppBundle\Entity\Affichage:
             type: time
         heureFin:
             type: time
-    manyToMany:
-        presentationsAffichage:
-            targetEntity: Presentation
-            mappedBy: affichagesPresentation
+    oneToMany:
+        serie:
+            targetEntity: Serie
+            mappedBy: affichage
+
     lifecycleCallbacks: {  }

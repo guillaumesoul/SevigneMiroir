@@ -32,6 +32,19 @@ class Presentation
      */
     private $category;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $presentation;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->presentation = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 
     /**
      * Get id
@@ -138,50 +151,38 @@ class Presentation
     {
         return $this->category;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $affichagesPresentation;
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->affichagesPresentation = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add affichagesPresentation
+     * Add presentation
      *
-     * @param \AppBundle\Entity\Affichage $affichagesPresentation
+     * @param \AppBundle\Entity\Serie $presentation
      *
      * @return Presentation
      */
-    public function addAffichagesPresentation(\AppBundle\Entity\Affichage $affichagesPresentation)
+    public function addPresentation(\AppBundle\Entity\Serie $presentation)
     {
-        $this->affichagesPresentation[] = $affichagesPresentation;
+        $this->presentation[] = $presentation;
 
         return $this;
     }
 
     /**
-     * Remove affichagesPresentation
+     * Remove presentation
      *
-     * @param \AppBundle\Entity\Affichage $affichagesPresentation
+     * @param \AppBundle\Entity\Serie $presentation
      */
-    public function removeAffichagesPresentation(\AppBundle\Entity\Affichage $affichagesPresentation)
+    public function removePresentation(\AppBundle\Entity\Serie $presentation)
     {
-        $this->affichagesPresentation->removeElement($affichagesPresentation);
+        $this->presentation->removeElement($presentation);
     }
 
     /**
-     * Get affichagesPresentation
+     * Get presentation
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getAffichagesPresentation()
+    public function getPresentation()
     {
-        return $this->affichagesPresentation;
+        return $this->presentation;
     }
 }
