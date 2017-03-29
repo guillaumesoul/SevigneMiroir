@@ -84,6 +84,12 @@ class SerieController extends Controller
                 $indexedTabSelectedPresentations[$pres->getId()] = $pres;
             }
 
+            //je supprime toutes les relations existantes et ajoute celle envoyées
+            $existingAffichages = $serie->getAffichages();
+            foreach ($existingAffichages as $existingAffichage) {
+                $em->remove($existingAffichage);
+            }
+
             $position = 0;
             foreach ($presentationOrder as $presOrder) {
                 //je cree une nouvelle serie
@@ -101,7 +107,7 @@ class SerieController extends Controller
 
         return $this->render('presentation/manage.html.twig', [
             'presentations' => $presentations,
-            'series' => $serie,
+            'serie' => $serie,
             'form' => $form->createView()
         ]);
     }

@@ -22,8 +22,15 @@
 
     <div>
         <ul id='sortable'>
+            {% for affichage in serie.affichages  %}
+                <span class='mdl-chip' id='{{ affichage.presentation.id }}'>
+                    <span class='mdl-chip__text'>{{ affichage.presentation.name }}</span>
+                        <a href='#' class='mdl-chip__action' data-action='remove'><i class='material-icons'>cancel</i></a> +
+                    </span>
+                </span>
+            {% endfor %}
         </ul>
-        <button id='getOrder'>Get Order</button>
+        <button id='getOrder' disabled="disabled">Mettre a jour</button>
     </div>
 
 
