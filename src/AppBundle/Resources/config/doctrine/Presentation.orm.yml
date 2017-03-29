@@ -19,10 +19,16 @@ AppBundle\Entity\Presentation:
             type: boolean
         slidesNumber:
             type: integer
-        slideTransitionDuration:
+            nullable: TRUE
+        slideDuration:
             type: integer
+            nullable: TRUE
+        slideTransitionDuration:
+            type: float
+            nullable: TRUE
         presentationDuration:
             type: time
+            nullable: TRUE
 
     manyToOne:
         category:

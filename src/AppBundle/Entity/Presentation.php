@@ -297,4 +297,33 @@ class Presentation
     {
         $this->affichages->removeElement($affichage);
     }
+    /**
+     * @var integer
+     */
+    private $slideDuration;
+
+
+    /**
+     * Set slideDuration
+     *
+     * @param integer $slideDuration
+     *
+     * @return Presentation
+     */
+    public function setSlideDuration($slideDuration)
+    {
+        $this->slideDuration = $slideDuration;
+
+        return $this;
+    }
+
+    /**
+     * Get slideDuration
+     *
+     * @return integer
+     */
+    public function getSlideDuration()
+    {
+        return $this->slideDuration;
+    }
 }

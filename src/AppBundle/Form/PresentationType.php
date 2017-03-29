@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class PresentationType extends AbstractType
 {
@@ -21,7 +22,12 @@ class PresentationType extends AbstractType
             ->add('url')
             ->add('active')
             ->add('slidesNumber')
-            ->add('slideTransitionDuration')
+            ->add('slideDuration', NumberType::class, array(
+                'required' => false
+            ))
+            ->add('slideTransitionDuration', NumberType::class, array(
+                'required' => false
+            ))
             ->add('presentationDuration', TimeType::class , array(
                 'with_seconds' => true
             ))
