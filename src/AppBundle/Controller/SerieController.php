@@ -27,6 +27,9 @@ class SerieController extends Controller
         $form = $this->createForm(SerieType::class);
         $form->handleRequest($request);
 
+        // TODO gestion concurrence séries si chevauchement plage horaire
+        // TODO gestion durée serie si passage minuit (tours de l'horloge)
+        // TODO gestion des series sur les jours de la semaine?
         if ($form->isSubmitted() && $form->isValid()) {
 
             $series = $form->getData();
@@ -59,8 +62,6 @@ class SerieController extends Controller
         $serie = $em->getRepository('AppBundle:Serie')->find($serieId);
         $presentations = $em->getRepository('AppBundle:Presentation')->findAll();
 
-        // TODO restitution des affichages et des position deja enregistrees en base de donnees
-
         $form = $this->createForm(SerieType::class, $serie);
         $form->handleRequest($request);
 
@@ -74,7 +75,7 @@ class SerieController extends Controller
             return $this->redirectToRoute('serie_index');
         }
 
-        //si les presentation sont definies les enregistrees
+        //si les presentation sont definies les enregistrer
         if($request->request->has('presentationOrder')) {
             $presentationOrder = $request->request->get('presentationOrder');
             //je veux donc enregistrer les relations series
@@ -85,6 +86,7 @@ class SerieController extends Controller
             }
 
             //je supprime toutes les relations existantes et ajoute celle envoyées
+            // TODO detection uniquement des changements, ne pas tout supprimer et tout ajouter comme un gros sac
             $existingAffichages = $serie->getAffichages();
             foreach ($existingAffichages as $existingAffichage) {
                 $em->remove($existingAffichage);

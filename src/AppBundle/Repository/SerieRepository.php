@@ -10,4 +10,18 @@ namespace AppBundle\Repository;
  */
 class SerieRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getActiveSerie(\DateTime $dateTime)
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder()
+            ->select('s')
+            ->from('AppBundle:Serie', 's')
+            ->where('s.heureDebut <= :dateTime')
+            ->andWhere('s.heureFin > :dateTime')
+            ->setParameter('dateTime', $dateTime)
+        ;
+
+        $result = $qb->getQuery()->getResult();
+
+        return $result;
+    }
 }

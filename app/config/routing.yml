@@ -14,11 +14,19 @@ presentation_add:
     path:      /presentation/add
     defaults:  { _controller: AppBundle:Presentation:add }
 
-affichage_index:
+serie_index:
     path:      /serie
     defaults:  { _controller: AppBundle:Serie:index }
 
-affichage_manage:
+serie_manage:
     path:      /serie/{serieId}
     defaults:  { _controller: AppBundle:Serie:manage }
+
+serie_test_affichage:
+    path:      /display
+    defaults:  { _controller: AppBundle:Display:index }
+
+serie_active:
+    path:      /display/active
+    defaults:  { _controller: AppBundle:Display:getAffichage }
 

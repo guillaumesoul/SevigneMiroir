@@ -2,6 +2,7 @@ $(document).ready(function() {
 
     $( "#sortable" ).sortable();
 
+    // TODO bug changement d'ordre non détecté pour enable la sauvegarde
 
     $(document).on("click", ".mdl-chip__action", function() {
         $('#getOrder').prop('disabled', false);
