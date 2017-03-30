@@ -20,7 +20,7 @@ class SerieRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('dateTime', $dateTime)
         ;
 
-        $result = $qb->getQuery()->getResult();
+        $result = $qb->getQuery()->getSingleResult();
 
         return $result;
     }

@@ -1,2 +1,6 @@
 var/**
 vendor/**
+.idea/workspace.xml
+var/
+vendor/
+web/bundles/
