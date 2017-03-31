@@ -53,6 +53,21 @@ class Presentation
     private $presentationDuration;
 
     /**
+     * @var string
+     */
+    private $IdGoogleSlide;
+
+    /**
+     * @var boolean
+     */
+    private $sliderLoop;
+
+    /**
+     * @var boolean
+     */
+    private $sliderAutostart;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -325,5 +340,79 @@ class Presentation
     public function getSlideDuration()
     {
         return $this->slideDuration;
+    }
+
+
+    /**
+     * Set idGoogleSlide
+     *
+     * @param string $idGoogleSlide
+     *
+     * @return Presentation
+     */
+    public function setIdGoogleSlide($idGoogleSlide)
+    {
+        $this->IdGoogleSlide = $idGoogleSlide;
+
+        return $this;
+    }
+
+    /**
+     * Get idGoogleSlide
+     *
+     * @return string
+     */
+    public function getIdGoogleSlide()
+    {
+        return $this->IdGoogleSlide;
+    }
+
+
+    /**
+     * Set sliderLoop
+     *
+     * @param boolean $sliderLoop
+     *
+     * @return Presentation
+     */
+    public function setSliderLoop($sliderLoop)
+    {
+        $this->sliderLoop = $sliderLoop;
+
+        return $this;
+    }
+
+    /**
+     * Get sliderLoop
+     *
+     * @return boolean
+     */
+    public function getSliderLoop()
+    {
+        return $this->sliderLoop;
+    }
+
+    /**
+     * Set sliderAutostart
+     *
+     * @param boolean $sliderAutostart
+     *
+     * @return Presentation
+     */
+    public function setSliderAutostart($sliderAutostart)
+    {
+        $this->sliderAutostart = $sliderAutostart;
+
+        return $this;
+    }
+
+    /**
+     * Get sliderAutostart
+     *
+     * @return boolean
+     */
+    public function getSliderAutostart()
+    {
+        return $this->sliderAutostart;
     }
 }

@@ -39,22 +39,39 @@ class PresentationController extends Controller
         $form = $this->createForm(PresentationType::class);
         $form->handleRequest($request);
 
-
-
         if ($form->isSubmitted() && $form->isValid()) {
 
-            //TODO faire de la regex pour déterminer les valeur des param dans l'url
+            //https://docs.google.com/presentation/d/1lATcS1XSr8VnaB_rrZqXjAh6rKV3HMPV573HRFp2e6o/pub?start=false&loop=false&delayms=3000
             $presentation = $form->getData();
             $url = $presentation->getUrl();
             preg_match('/https:.*delayms=\d+/',$url, $urlMatches);
 
-            if (isset($urlMatches[0]) && filter_var($urlMatches[0], FILTER_VALIDATE_URL)) {
+            /*if (isset($urlMatches[0]) && filter_var($urlMatches[0], FILTER_VALIDATE_URL)) {
                 $cleanUrl = $urlMatches[0];
-            }
+                preg_match('/((https)(.*)(presentation\/d\/))(?P<googleSlideId>.*)(\/)(\w+\?)(start=)(?P<start>.*)(&)(loop=)(?P<loop>.*)(&)(delayms=)(?P<delayms>.*)/', $cleanUrl, $paramsUrl);
 
+                if(isset($paramsUrl['googleSlideId']))  $googleSlideId = $paramsUrl['googleSlideId'];
+                if(isset($paramsUrl['start']))  ($paramsUrl['start'] == "false") ? $start = false : $start = true;
+                if(isset($paramsUrl['loop']))  ($paramsUrl['loop'] == "false") ? $loop = false : $loop = true;
+                if(isset($paramsUrl['delayms']))  $delayms = $paramsUrl['delayms'];
 
+                $slideDuration = $presentation->getSlideDuration();
+                if(isset($googleSlideId)) {
+                    $presentation->setIdGoogleSlide($googleSlideId);
+                }
+                $presentation->setStart(true);
+                if(isset($loop)) {
+                    $presentation->setLoop($loop);
+                }
+                if($presentation->getSlideDuration() == null) {
+                    $presentation->setSlideDuration($delayms);
+                }
+            }*/
 
-            $presentation = $form->getData();
+            $presentation->setActive(true);
+            $presentation->setSliderAutostart(true);
+            $presentation->setSliderLoop(true);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($presentation);
             $em->flush();

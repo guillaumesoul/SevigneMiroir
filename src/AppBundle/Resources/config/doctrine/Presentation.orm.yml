@@ -30,7 +30,16 @@ AppBundle\Entity\Presentation:
         presentationDuration:
             type: time
             nullable: TRUE
-
+        IdGoogleSlide:
+            type: string
+            length: 128
+            nullable: TRUE
+        sliderLoop:
+            type: boolean
+            default: true
+        sliderAutostart:
+            type: boolean
+            default: true
     manyToOne:
         category:
             targetEntity: Category
