@@ -74,19 +74,24 @@ class PresentationController extends Controller
                 if(isset($loop)) {
                     $presentation->setSliderLoop($loop);
                 }
-                // TODO gestion la duree de transition
-                $presentationDurationMicroSec = $presentation->getSlideDuration() / 1000 * $presentation->getSlidesNumber();
-                $presentationDurationTimeStamp = $test + $presentationDurationMicroSec;
-
-                $datetimePresDuration = new \DateTime();
-                $datetimePresDuration->setTimestamp($presentationDurationTimeStamp);
-                $presentation->setPresentationDuration($datetimePresDuration);
             }
 
+            $presentationDurationMicroSec = $presentation->getSlideDuration() / 1000 * $presentation->getSlidesNumber();
+            $presentationDurationTimeStamp = $test + $presentationDurationMicroSec;
+
+            $test = $request->query->has('slideTransitionDuration');
+            $transitionDuration = 0;
+            if($presentation->getSlideTransitionDuration() != null) {
+                $transitionDuration = $presentation->getSlideTransitionDuration();
+                $totalTransitionDuration = $transitionDuration/1000 * ($presentation->getSlidesNumber() - 1);
+            }
+            $presentationDurationTimeStamp += $totalTransitionDuration;
+
+            $datetimePresDuration = new \DateTime();
+            $datetimePresDuration->setTimestamp($presentationDurationTimeStamp);
+            $presentation->setPresentationDuration($datetimePresDuration);
+
             // TODO resolution probleme de valeur par defaut active, autoStart, loop
-            /*$presentation->setActive(true);
-            $presentation->setSliderAutostart(true);
-            $presentation->setSliderLoop(true);*/
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($presentation);
