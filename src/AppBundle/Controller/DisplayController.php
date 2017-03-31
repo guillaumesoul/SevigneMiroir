@@ -5,7 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use FOS\RestBundle\Controller\Annotations as Rest;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class DisplayController extends Controller
 {
@@ -13,7 +13,12 @@ class DisplayController extends Controller
 
     public function indexAction(Request $request)
     {
-        return $this->json(array('test' => 'test'));
+        //$json = $this->json(array('test' => 'test'));
+        $response = new JsonResponse();
+        $response->setData(array(
+            'data' => 123
+        ));
+        return $response;
         /*return $this->render('display/test.html.twig', [
             'toto' => 'toto'
         ]);*/
@@ -35,16 +40,20 @@ class DisplayController extends Controller
         $date = new \DateTime('1970-01-01 ' . $nowHoursMinSec);
         $series = $em->getRepository('AppBundle:Serie')->getActiveSerie($date);
 
-        /*return $this->render('display/testAffichage.html.twig', [
+        /*return $this->render('display/test.html.twig', [
             'toto' => 'toto'
         ]);*/
-        /*return new Response(
-            '<html><body>Lucky number: 23</body></html>'
-        );*/
 
+        // recuperer l'affichage en fonction de l'heure
+        // TODO vaut il mieux envoyer toute la serie ou affichage par affichage?
+        //je pense qu'il vaut mieux envoyer toute la serie
+        $serializer = $this->get('jms_serializer');
+        $json = $serializer->serialize($series, 'json');
+        //$data = $serializer->deserialize($inputStr, $typeName, $format);
 
+        $response = new JsonResponse();
+        $response->setJson($json);
+        return $response;
 
-        return json_encode('toto');
-        return $this->json(array("username" => "jane"));
     }
 }

@@ -33,8 +33,7 @@ framework:
     assets: ~
     php_errors:
         log: true
-    serializer:
-        enabled: true
+
 
 # Twig Configuration
 twig:
