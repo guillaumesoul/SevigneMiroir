@@ -36,8 +36,14 @@ class PresentationController extends Controller
     public function addAction(Request $request)
     {
         $presentation = new Presentation();
-        $form = $this->createForm(PresentationType::class);
+        $presentation->setActive(true);
+        $presentation->setSliderAutostart(true);
+        $presentation->setSliderLoop(true);
+
+        $form = $this->createForm(PresentationType::class, $presentation);
         $form->handleRequest($request);
+
+        //todo faire un check sur le type d'url qui soit du format googleslide
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -46,7 +52,7 @@ class PresentationController extends Controller
             $url = $presentation->getUrl();
             preg_match('/https:.*delayms=\d+/',$url, $urlMatches);
 
-            /*if (isset($urlMatches[0]) && filter_var($urlMatches[0], FILTER_VALIDATE_URL)) {
+            if (isset($urlMatches[0]) && filter_var($urlMatches[0], FILTER_VALIDATE_URL)) {
                 $cleanUrl = $urlMatches[0];
                 preg_match('/((https)(.*)(presentation\/d\/))(?P<googleSlideId>.*)(\/)(\w+\?)(start=)(?P<start>.*)(&)(loop=)(?P<loop>.*)(&)(delayms=)(?P<delayms>.*)/', $cleanUrl, $paramsUrl);
 
@@ -59,18 +65,19 @@ class PresentationController extends Controller
                 if(isset($googleSlideId)) {
                     $presentation->setIdGoogleSlide($googleSlideId);
                 }
-                $presentation->setStart(true);
+                $presentation->setSliderAutostart(true);
                 if(isset($loop)) {
-                    $presentation->setLoop($loop);
+                    $presentation->setSliderLoop($loop);
                 }
                 if($presentation->getSlideDuration() == null) {
                     $presentation->setSlideDuration($delayms);
                 }
-            }*/
+            }
 
-            $presentation->setActive(true);
+            // TODO resolution probleme de valeur par defaut active, autoStart, loop
+            /*$presentation->setActive(true);
             $presentation->setSliderAutostart(true);
-            $presentation->setSliderLoop(true);
+            $presentation->setSliderLoop(true);*/
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($presentation);

@@ -40,6 +40,11 @@ class Presentation
     /**
      * @var integer
      */
+    private $slideDuration;
+
+    /**
+     * @var integer
+     */
     private $slidesNumber;
 
     /**
@@ -312,10 +317,6 @@ class Presentation
     {
         $this->affichages->removeElement($affichage);
     }
-    /**
-     * @var integer
-     */
-    private $slideDuration;
 
 
     /**
