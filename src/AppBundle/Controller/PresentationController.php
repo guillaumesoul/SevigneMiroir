@@ -71,9 +71,10 @@ class PresentationController extends Controller
                     $presentation->setIdGoogleSlide($googleSlideId);
                 }
                 $presentation->setSliderAutostart(true);
-                if(isset($loop)) {
+                /*if(isset($loop)) {
                     $presentation->setSliderLoop($loop);
-                }
+                }*/
+                $presentation->setSliderLoop(true);
             }
 
             $presentationDurationMicroSec = $presentation->getSlideDuration() / 1000 * $presentation->getSlidesNumber();
@@ -83,8 +84,8 @@ class PresentationController extends Controller
             $transitionDuration = 0;
             if($presentation->getSlideTransitionDuration() != null) {
                 $transitionDuration = $presentation->getSlideTransitionDuration();
-                $totalTransitionDuration = $transitionDuration/1000 * ($presentation->getSlidesNumber() - 1);
             }
+            $totalTransitionDuration = $transitionDuration/1000 * ($presentation->getSlidesNumber() - 1);
             $presentationDurationTimeStamp += $totalTransitionDuration;
 
             $datetimePresDuration = new \DateTime();

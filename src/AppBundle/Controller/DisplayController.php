@@ -23,7 +23,7 @@ class DisplayController extends Controller
     /*
      * Cette fonction permet de retourner l'affichage en fonction de l'heure
      *
-     * // TODO déterminer sous quel forme retourner l'affichage (url?, code html, json...?)
+     * Retourne un flux Json
      * */
     public function getAffichageAction()
     {
@@ -32,11 +32,14 @@ class DisplayController extends Controller
         // TODO gestion des conflits sur les période, on peut ajouter 2 series sur la meme plage horaire
         $nowHoursMinSec = date('H:i:s');
         $date = new \DateTime('1970-01-01 ' . $nowHoursMinSec);
-        $series = $em->getRepository('AppBundle:Serie')->getActiveSerie($date);
 
-        // recuperer l'affichage en fonction de l'heure
+        $json = '';
         $serializer = $this->get('jms_serializer');
-        $json = $serializer->serialize($series, 'json');
+
+        $series = $em->getRepository('AppBundle:Serie')->getActiveSerie($date);
+        if(count($series) > 0) {
+            $json = $serializer->serialize($series[0], 'json');
+        }
 
         $response = new JsonResponse();
         $response->setJson($json);

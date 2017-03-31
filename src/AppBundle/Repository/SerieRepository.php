@@ -26,7 +26,8 @@ class SerieRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('dateTime', $dateTime)
         ;
 
-        $result = $qb->getQuery()->getSingleResult();
+        //$result = $qb->getQuery()->getSingleResult();
+        $result = $qb->getQuery()->getResult();
 
         return $result;
     }
