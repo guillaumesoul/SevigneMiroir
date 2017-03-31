@@ -35,10 +35,15 @@ class PresentationController extends Controller
      */
     public function addAction(Request $request)
     {
+        $date = new \DateTime('1970-01-01 00:00:00');
+        $test = $date->getTimestamp();
+
+
         $presentation = new Presentation();
         $presentation->setActive(true);
         $presentation->setSliderAutostart(true);
         $presentation->setSliderLoop(true);
+        $presentation->setSlideDuration(3000);
 
         $form = $this->createForm(PresentationType::class, $presentation);
         $form->handleRequest($request);
@@ -69,9 +74,13 @@ class PresentationController extends Controller
                 if(isset($loop)) {
                     $presentation->setSliderLoop($loop);
                 }
-                if($presentation->getSlideDuration() == null) {
-                    $presentation->setSlideDuration($delayms);
-                }
+                // TODO gestion la duree de transition
+                $presentationDurationMicroSec = $presentation->getSlideDuration() / 1000 * $presentation->getSlidesNumber();
+                $presentationDurationTimeStamp = $test + $presentationDurationMicroSec;
+
+                $datetimePresDuration = new \DateTime();
+                $datetimePresDuration->setTimestamp($presentationDurationTimeStamp);
+                $presentation->setPresentationDuration($datetimePresDuration);
             }
 
             // TODO resolution probleme de valeur par defaut active, autoStart, loop

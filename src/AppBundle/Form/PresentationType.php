@@ -16,17 +16,16 @@ class PresentationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        // TODO enregistrer une duree de presentation par defaut lorsque rien n'est saisi
         $builder
             ->add('name')
             ->add('url')
             ->add('active')
+            ->add('sliderLoop')
+            ->add('active')
             ->add('slidesNumber', NumberType::class, array(
-                'required' => false
+                'required' => true
             ))
-            ->add('slideDuration', NumberType::class, array(
-                'required' => false
-            ))
+            ->add('slideDuration')
             ->add('slideTransitionDuration', NumberType::class, array(
                 'required' => false
             ))
