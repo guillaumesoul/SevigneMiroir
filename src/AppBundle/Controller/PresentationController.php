@@ -39,7 +39,20 @@ class PresentationController extends Controller
         $form = $this->createForm(PresentationType::class);
         $form->handleRequest($request);
 
+
+
         if ($form->isSubmitted() && $form->isValid()) {
+
+            //TODO faire de la regex pour déterminer les valeur des param dans l'url
+            $presentation = $form->getData();
+            $url = $presentation->getUrl();
+            preg_match('/https:.*delayms=\d+/',$url, $urlMatches);
+
+            if (isset($urlMatches[0]) && filter_var($urlMatches[0], FILTER_VALIDATE_URL)) {
+                $cleanUrl = $urlMatches[0];
+            }
+
+
 
             $presentation = $form->getData();
             $em = $this->getDoctrine()->getManager();

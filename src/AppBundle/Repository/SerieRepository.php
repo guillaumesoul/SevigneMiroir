@@ -10,6 +10,12 @@ namespace AppBundle\Repository;
  */
 class SerieRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    /**
+     * Permet de retrouver la serie active en fonction de l'heure, si plusieurs serie retrouvees, on ne retourne que la premiere
+     * @param \DateTime $dateTime
+     * @return mixed
+     */
     public function getActiveSerie(\DateTime $dateTime)
     {
         $qb = $this->getEntityManager()->createQueryBuilder()

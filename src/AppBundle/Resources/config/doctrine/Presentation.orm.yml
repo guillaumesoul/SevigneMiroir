@@ -17,6 +17,7 @@ AppBundle\Entity\Presentation:
             length: '512'
         active:
             type: boolean
+            default: true
         slidesNumber:
             type: integer
             nullable: TRUE

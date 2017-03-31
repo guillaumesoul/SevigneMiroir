@@ -27,12 +27,9 @@ $(document).ready(function() {
         }
     });
 
-    // TODO detection automatique de la duree de presentation en fonction du nb de slides et de la durée de transition
-
-
     $('#getOrder').on('click', function () {
-        var presentationOrder = $( "#sortable" ).sortable('toArray');
 
+        var presentationOrder = $( "#sortable" ).sortable('toArray');
         $.ajax({
             method: 'post',
             data: {
@@ -45,28 +42,11 @@ $(document).ready(function() {
                 console.log('error');
             }
         })
-        //quand je clique sur save je récupère l'ordre des prséentations et les ajoute dans un param post et jen'envoi en requête ajax
 
 
     });
 
-
-    $.ajax({
-        url: 'http://sevignemiroir.local/display',
-        contentType:  "application/json",
-        dataType: 'html',
-        crossDomain: true,
-        //dataType: 'html',
-        success: function(response) {
-            console.log('success');
-            console.log(response);
-        },
-        error: function (response) {
-            console.log('error');
-            console.log(response);
-        }
-    })
-
+    // TODO detection automatique de la duree de presentation en fonction du nb de slides et de la durée de transition
 
 
 });
