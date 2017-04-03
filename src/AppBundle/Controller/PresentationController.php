@@ -47,6 +47,8 @@ class PresentationController extends Controller
         $form = $this->createForm(PresentationType::class, $presentation);
         $form->handleRequest($request);
 
+        //TODO P1 : duree presentation type integer pour nombre de seconde -> on fera 2 inputs dans le form d'ajout pour min et sec
+
         if ($form->isSubmitted() && $form->isValid()) {
 
             //https://docs.google.com/presentation/d/1lATcS1XSr8VnaB_rrZqXjAh6rKV3HMPV573HRFp2e6o/pub?start=false&loop=false&delayms=3000

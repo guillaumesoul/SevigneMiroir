@@ -9,5 +9,5 @@ use Symfony\Component\Validator\Constraint;
  */
 class IsGoogleSlideUrl extends Constraint
 {
-    public $message = 'La valeur "%string%" ne correspond pas à une url d\'une presentation google slide';
+    public $message = 'La valeur saisie ne correspond pas à une url d\'une presentation google slide';
 }

@@ -1,10 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div>
-        <h3>Liste des présentations</h3>
-        {% for presentation in presentations %}
-            <li>{{ presentation.name }}</li>
-        {% endfor %}
+    <div class="mdl-layout__content">
+
+        <h3>Présentations </h3>
+
+        <div class="mdl-grid">
+            {% for presentation in presentations %}
+                <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title ">
+                        <h4>{{ presentation.name }}</h4>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a href="{{ 'https://docs.google.com/presentation/d/' ~ presentation.IdGoogleSlide ~ '/edit#slide=id.p'}}" target="_blank">Google slide</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
