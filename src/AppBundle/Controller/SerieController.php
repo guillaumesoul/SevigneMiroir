@@ -53,41 +53,37 @@ class SerieController extends Controller
         ]);
     }
 
-    /**
-     * @param Request $request
-     * @param $presentationId
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function editAction(Request $request, $presentationId)
+
+    public function editAction(Request $request, $serieId)
     {
         $em = $this->getDoctrine()->getManager();
-        $presentation = $em->getRepository('AppBundle:Presentation')->find($presentationId);
+        $serie = $em->getRepository('AppBundle:Serie')->find($serieId);
 
-        $form = $this->createForm(PresentationType::class, $presentation);
+        $form = $this->createForm(SerieType::class, $serie);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($presentation);
+            $em->persist($serie);
             $em->flush();
 
-            return $this->redirectToRoute('presentation_index');
+            return $this->redirectToRoute('serie_index');
         }
 
-        return $this->render('presentation/edit.html.twig', [
-            'presentation' => $presentation,
-            'form' => $form->createView(),
+        return $this->render('serie/edit.html.twig', [
+            'serie' => $serie,
+            'form' => $form->createView()
         ]);
     }
 
-    public function deleteAction(Request $request, $presentationId)
+    public function deleteAction(Request $request, $serieId)
     {
         $em = $this->getDoctrine()->getManager();
-        $presentation = $em->getRepository('AppBundle:Presentation')->find($presentationId);
+        $serie = $em->getRepository('AppBundle:Serie')->find($serieId);
         // TODO P1 : gestion de la suppression avec lien avec serie : interdiction de supprimer tant que des series contiennent cette présentation faire message d'alerte pour indiquer les séries concernées
 
-        $em->remove($presentation);
+        $em->remove($serie);
         $em->flush();
-        return $this->redirectToRoute('presentation_index');
+        return $this->redirectToRoute('serie_index');
     }
 
     /**
