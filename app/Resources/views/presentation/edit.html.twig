@@ -44,7 +44,6 @@
                 </div>
             </li>
 
-
             <li class="mdl-list__item mdl-list__item_form">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     {{ form_label(form.presentationDuration) }}
@@ -59,7 +58,14 @@
                     {{ form_label(form.save, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
                     {{ form_widget(form.save, { 'attr': {'class': 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored'} }) }}
                 </div>
+            </li>
 
+            <li class="mdl-list__item mdl-list__item_form">
+                <a href="{{ path('presentation_edit', {'presentationId': presentation.id}) }}">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                        DELETE
+                    </button>
+                </a>
             </li>
 
         </ul>

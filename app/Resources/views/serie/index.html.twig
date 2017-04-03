@@ -1,20 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
     <div class="mdl-layout__content">
-        <div>
-            <h3>Ajout d'une série</h3>
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            {{ form_end(form) }}
+        <div class="mdl-grid">
+            <h3 class="mdl-cell mdl-cell--12-col">Séries </h3>
+            <a class="mdl-cell mdl-cell--12-col" href="{{ path('serie_add') }}">
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
+                    <i class="material-icons">add</i>
+                </button>
+            </a>
+
+            {% for serie in series %}
+                <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp">
+                    <a href="{{ path('serie_edit', {'serieId': serie.id}) }}">
+                        <div class="mdl-card__title ">
+                            <h4>{{ serie.name }}</h4>
+                        </div>
+                    </a>
+                    <div class="mdl-card__actions mdl-card--border">
+                        Starts - Finish
+                    </div>
+                </div>
+            {% endfor %}
         </div>
+    </div>
+
+    {#<div class="mdl-layout__content">
         <div>
-            {# TODO P3 : serie sous forme de vignettes #}
+            #}{# TODO P3 : serie sous forme de vignettes #}{#
             <h3>Liste des Séries</h3>
             {% for serie in series %}
                 <a href="/serie/{{ serie.id }}">{{ serie.name }}</a>
             {% endfor %}
         </div>
-    </div>
+    </div>#}
 
 {% endblock %}

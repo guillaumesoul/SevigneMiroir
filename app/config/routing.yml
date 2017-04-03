@@ -18,9 +18,25 @@ presentation_edit:
     path:      /presentation/{presentationId}
     defaults:  { _controller: AppBundle:Presentation:edit }
 
+presentation_delete:
+    path:      /presentation/{presentationId}/delete
+    defaults:  { _controller: AppBundle:Presentation:delete }
+
 serie_index:
     path:      /serie
     defaults:  { _controller: AppBundle:Serie:index }
+    
+serie_add:
+    path:      /serie/add
+    defaults:  { _controller: AppBundle:Serie:add }
+
+serie_edit:
+    path:      /serie/{serieId}
+    defaults:  { _controller: AppBundle:Serie:edit }
+
+serie_delete:
+    path:      /serie/{serieId}/delete
+    defaults:  { _controller: AppBundle:Serie:delete }
 
 serie_manage:
     path:      /serie/{serieId}
