@@ -107,5 +107,24 @@ class PresentationController extends Controller
     }
 
     // TODO P1 : faire fonction edition presentation
+    public function editAction(Request $request, $presentationId)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $presentation = $em->getRepository('AppBundle:Presentation')->find($presentationId);
+
+        $form = $this->createForm(PresentationType::class, $presentation);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($presentation);
+            $em->flush();
+
+            return $this->redirectToRoute('presentation_index');
+        }
+
+        return $this->render('presentation/edit.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
 
 }

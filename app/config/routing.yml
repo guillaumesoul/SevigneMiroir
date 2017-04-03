@@ -14,6 +14,10 @@ presentation_add:
     path:      /presentation/add
     defaults:  { _controller: AppBundle:Presentation:add }
 
+presentation_edit:
+    path:      /presentation/{presentationId}
+    defaults:  { _controller: AppBundle:Presentation:edit }
+
 serie_index:
     path:      /serie
     defaults:  { _controller: AppBundle:Serie:index }

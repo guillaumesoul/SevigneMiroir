@@ -2,15 +2,21 @@
 
 {% block body %}
     <div class="mdl-layout__content">
-
-        <h3>Présentations </h3>
-
         <div class="mdl-grid">
+            <h3 class="mdl-cell mdl-cell--12-col">Présentations </h3>
+            <a class="mdl-cell mdl-cell--12-col" href="{{ path('presentation_add') }}">
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
+                    <i class="material-icons">add</i>
+                </button>
+            </a>
+
             {% for presentation in presentations %}
                 <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp">
+                    <a href="{{ path('presentation_edit', {'presentationId': presentation.id}) }}">
                     <div class="mdl-card__title ">
                         <h4>{{ presentation.name }}</h4>
                     </div>
+                    </a>
                     <div class="mdl-card__actions mdl-card--border">
                         <a href="{{ 'https://docs.google.com/presentation/d/' ~ presentation.IdGoogleSlide ~ '/edit#slide=id.p'}}" target="_blank">Google slide</a>
                     </div>
