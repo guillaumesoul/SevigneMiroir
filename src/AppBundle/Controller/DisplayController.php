@@ -41,8 +41,14 @@ class DisplayController extends Controller
             $json = $serializer->serialize($series[0], 'json');
         }
 
-        $response = new JsonResponse();
+        /*$response = new JsonResponse();
         $response->setJson($json);
+        return $response;*/
+
+        $response = new JsonResponse();
+        $response->setData(array(
+            'serieActive' => 'youhou'
+        ));
         return $response;
 
     }
