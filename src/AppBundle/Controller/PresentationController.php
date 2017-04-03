@@ -36,8 +36,7 @@ class PresentationController extends Controller
     public function addAction(Request $request)
     {
         $date = new \DateTime('1970-01-01 00:00:00');
-        $test = $date->getTimestamp();
-
+        $timeStampOrigine = $date->getTimestamp();
 
         $presentation = new Presentation();
         $presentation->setActive(true);
@@ -48,7 +47,7 @@ class PresentationController extends Controller
         $form = $this->createForm(PresentationType::class, $presentation);
         $form->handleRequest($request);
 
-        //todo faire un check sur le type d'url qui soit du format googleslide
+        //TODO P1 faire un check sur le type d'url qui soit du format googleslide
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -66,10 +65,10 @@ class PresentationController extends Controller
                 if(isset($paramsUrl['loop']))  ($paramsUrl['loop'] == "false") ? $loop = false : $loop = true;
                 if(isset($paramsUrl['delayms']))  $delayms = $paramsUrl['delayms'];
 
-                $slideDuration = $presentation->getSlideDuration();
                 if(isset($googleSlideId)) {
                     $presentation->setIdGoogleSlide($googleSlideId);
                 }
+
                 $presentation->setSliderAutostart(true);
                 /*if(isset($loop)) {
                     $presentation->setSliderLoop($loop);
@@ -78,9 +77,9 @@ class PresentationController extends Controller
             }
 
             $presentationDurationMicroSec = $presentation->getSlideDuration() / 1000 * $presentation->getSlidesNumber();
-            $presentationDurationTimeStamp = $test + $presentationDurationMicroSec;
+            $presentationDurationTimeStamp = $timeStampOrigine + $presentationDurationMicroSec;
 
-            $test = $request->query->has('slideTransitionDuration');
+            $timeStampOrigine = $request->query->has('slideTransitionDuration');
             $transitionDuration = 0;
             if($presentation->getSlideTransitionDuration() != null) {
                 $transitionDuration = $presentation->getSlideTransitionDuration();
@@ -91,8 +90,6 @@ class PresentationController extends Controller
             $datetimePresDuration = new \DateTime();
             $datetimePresDuration->setTimestamp($presentationDurationTimeStamp);
             $presentation->setPresentationDuration($datetimePresDuration);
-
-            // TODO resolution probleme de valeur par defaut active, autoStart, loop
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($presentation);
@@ -109,6 +106,6 @@ class PresentationController extends Controller
 
     }
 
-    // TODO faire fonction edition presentation
+    // TODO P1 : faire fonction edition presentation
 
 }

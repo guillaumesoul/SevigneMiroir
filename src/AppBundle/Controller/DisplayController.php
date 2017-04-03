@@ -29,7 +29,7 @@ class DisplayController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        // TODO gestion des conflits sur les période, on peut ajouter 2 series sur la meme plage horaire
+        // TODO P2 : gestion des conflits sur les période, on peut ajouter 2 series sur la meme plage horaire
         $nowHoursMinSec = date('H:i:s');
         $date = new \DateTime('1970-01-01 ' . $nowHoursMinSec);
 
@@ -41,18 +41,12 @@ class DisplayController extends Controller
             $json = $serializer->serialize($series[0], 'json');
         }
 
-        $serie = $em->getRepository('AppBundle:Serie')->find(3);
-        $json = $serializer->serialize($serie, 'json');
+        //$serie = $em->getRepository('AppBundle:Serie')->find(3);
+        //$json = $serializer->serialize($serie, 'json');
 
         $response = new JsonResponse();
         $response->setJson($json);
         return $response;
-
-        /*$response = new JsonResponse();
-        $response->setData(array(
-            'serieActive' => 'youhou'
-        ));
-        return $response;*/
 
     }
 }

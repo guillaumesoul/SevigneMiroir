@@ -19,8 +19,8 @@ class PresentationType extends AbstractType
         $builder
             ->add('name')
             ->add('url')
-            ->add('active')
-            ->add('sliderLoop')
+            //->add('active')
+            //->add('sliderLoop')
             ->add('active')
             ->add('slidesNumber', NumberType::class, array(
                 'required' => true

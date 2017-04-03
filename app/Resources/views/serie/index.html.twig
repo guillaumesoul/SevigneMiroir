@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}‹
+{% block body %}
     <div>
         <h1>Ajout d'une série</h1>
         {{ form_start(form) }}
@@ -8,7 +8,7 @@
         {{ form_end(form) }}
     </div>
     <div>
-        {# TODO serie sous forme de vignettes #}
+        {# TODO P3 : serie sous forme de vignettes #}
         <h1>Liste des Séries</h1>
         {% for serie in series %}
             <a href="/serie/{{ serie.id }}">{{ serie.name }}</a>

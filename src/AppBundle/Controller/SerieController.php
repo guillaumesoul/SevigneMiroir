@@ -27,9 +27,9 @@ class SerieController extends Controller
         $form = $this->createForm(SerieType::class);
         $form->handleRequest($request);
 
-        // TODO gestion concurrence séries si chevauchement plage horaire
-        // TODO gestion durée serie si passage minuit (tours de l'horloge)
-        // TODO gestion des series sur les jours de la semaine?
+        // TODO P2 : gestion concurrence séries si chevauchement plage horaire
+        // TODO P1 : gestion durée serie si passage minuit (tours de l'horloge)
+        // TODO P3 : gestion des series sur les jours de la semaine?
         if ($form->isSubmitted() && $form->isValid()) {
 
             $series = $form->getData();

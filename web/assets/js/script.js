@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     $( "#sortable" ).sortable();
 
-    // TODO bug changement d'ordre non détecté pour enable la sauvegarde
+    // TODO P1 : bug changement d'ordre non détecté pour enable bouton enregistrer
 
     $(document).on("click", ".mdl-chip__action", function() {
         $('#getOrder').prop('disabled', false);
@@ -46,7 +46,7 @@ $(document).ready(function() {
 
     });
 
-    // TODO detection automatique de la duree de presentation en fonction du nb de slides et de la durée de transition
+    // TODO P3 : detection automatique de la duree de presentation en fonction du nb de slides et de la durée de transition
 
 
 });
