@@ -37,6 +37,7 @@ $(document).ready(function() {
             },
             success: function() {
                 console.log('success');
+                //TODO P2 : notification succes enregistrement presentations dans serie
             },
             error: function () {
                 console.log('error');

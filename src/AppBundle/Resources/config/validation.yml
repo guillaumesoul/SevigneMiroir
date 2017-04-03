@@ -1,0 +1,8 @@
+AppBundle\Entity\Presentation:
+    properties:
+        name:
+            - NotBlank: ~
+            - AppBundle\Validator\Constraints\ContainsAlphanumeric: ~
+        url:
+            - NotBlank: ~
+            - AppBundle\Validator\Constraints\IsGoogleSlideUrl: ~
