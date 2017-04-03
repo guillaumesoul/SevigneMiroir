@@ -6,3 +6,6 @@ AppBundle\Entity\Presentation:
         url:
             - NotBlank: ~
             - AppBundle\Validator\Constraints\IsGoogleSlideUrl: ~
+        slidesNumber:
+            - NotBlank: ~
+

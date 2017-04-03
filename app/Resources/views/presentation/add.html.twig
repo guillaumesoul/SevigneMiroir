@@ -2,9 +2,54 @@
 
 {% block body %}
     {# TODO P3 : mise en forme form ajout avec material design input #}
+    {# TODO P3 : mise en forme des erreurs de validation du form #}
     <div>
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
+
+        {% form_theme form 'form/fields.html.twig' %}
+
+        <ul class="demo-list-item mdl-list">
+            <li class="mdl-list__item mdl-list__item_form">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
+                    {{ form_label(form.name, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+                    {{ form_errors(form.name) }}
+                    {{ form_widget(form.name, { 'attr': {'class': 'mdl-textfield__input'} }) }}
+                </div>
+            </li>
+            <li class="mdl-list__item mdl-list__item_form">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    {{ form_label(form.url, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+                    {{ form_errors(form.url) }}
+                    {{ form_widget(form.url, { 'attr': {'class': 'mdl-textfield__input'} }) }}
+                </div>
+            </li>
+            <li class="mdl-list__item mdl-list__item_form">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    {{ form_label(form.slidesNumber, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+                    {{ form_errors(form.slidesNumber) }}
+                    {{ form_widget(form.slidesNumber, { 'attr': {'class': 'mdl-textfield__input', 'pattern': '-?[0-9]*(\.[0-9]+)?'} }) }}
+                </div>
+            </li>
+            <li class="mdl-list__item mdl-list__item_form">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    {{ form_label(form.slideDuration, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+                    {{ form_errors(form.slideDuration) }}
+                    {{ form_widget(form.slideDuration, { 'attr': {'class': 'mdl-textfield__input', 'pattern': '-?[0-9]*(\.[0-9]+)?'} }) }}
+                </div>
+            </li>
+            <li class="mdl-list__item mdl-list__item_form">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    {{ form_label(form.slideTransitionDuration, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+                    {{ form_errors(form.slideTransitionDuration) }}
+                    {{ form_widget(form.slideTransitionDuration, { 'attr': {'class': 'mdl-textfield__input', 'pattern': '-?[0-9]*(\.[0-9]+)?'} }) }}
+                </div>
+            </li>
+
+        </ul>
+
+        {{ form_row(form.presentationDuration) }}
+        {{ form_row(form.save) }}
+
+
+
     </div>
 {% endblock %}
