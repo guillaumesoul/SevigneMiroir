@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+    $('#time').bootstrapMaterialDatePicker({
+        date: false,
+        format: 'HH:mm'
+    });
+
     $( "#sortable" ).sortable();
 
     // TODO P1 : bug changement d'ordre non détecté pour enable bouton enregistrer

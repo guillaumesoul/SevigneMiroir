@@ -5,9 +5,16 @@
     {# TODO P3 : mise en forme des erreurs de validation du form #}
     <div>
 
+        {{ form_start(form) }}
+
         {% form_theme form 'form/fields.html.twig' %}
 
         <ul class="demo-list-item mdl-list">
+            {#<li class="mdl-list__item mdl-list__item_form">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
+                    <input type="text" id="time" class="mdl-textfield__input" placeholder="Time">
+                </div>
+            </li>#}
             <li class="mdl-list__item mdl-list__item_form">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
                     {{ form_label(form.name, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
@@ -26,7 +33,7 @@
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     {{ form_label(form.slidesNumber, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
                     {{ form_errors(form.slidesNumber) }}
-                    {{ form_widget(form.slidesNumber, { 'attr': {'class': 'mdl-textfield__input', 'pattern': '-?[0-9]*(\.[0-9]+)?'} }) }}
+                    {{ form_widget(form.slidesNumber, { 'attr': {'class': 'mdl-textfield__input', 'pattern': '[0-9]*'} }) }}
                 </div>
             </li>
             <li class="mdl-list__item mdl-list__item_form">
@@ -44,12 +51,26 @@
                 </div>
             </li>
 
+
+            <li class="mdl-list__item mdl-list__item_form">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    {{ form_label(form.presentationDuration) }}
+                    {{ form_errors(form.presentationDuration) }}
+                    {{ form_widget(form.presentationDuration) }}
+                </div>
+            </li>
+
+
+            <li class="mdl-list__item mdl-list__item_form">
+                <div>
+                    {{ form_label(form.save, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+                    {{ form_widget(form.save, { 'attr': {'class': 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored'} }) }}
+                </div>
+
+            </li>
+
         </ul>
-
-        {{ form_row(form.presentationDuration) }}
-        {{ form_row(form.save) }}
-
-
+        {{ form_start(form) }}
 
     </div>
 {% endblock %}

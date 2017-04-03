@@ -3,14 +3,14 @@
 {% block body %}
     <div class="mdl-layout__content">
         <div>
-            <h1>Ajout d'une série</h1>
+            <h3>Ajout d'une série</h3>
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}
         </div>
         <div>
             {# TODO P3 : serie sous forme de vignettes #}
-            <h1>Liste des Séries</h1>
+            <h3>Liste des Séries</h3>
             {% for serie in series %}
                 <a href="/serie/{{ serie.id }}">{{ serie.name }}</a>
             {% endfor %}
