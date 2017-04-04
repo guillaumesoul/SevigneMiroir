@@ -22,9 +22,6 @@ class PresentationType extends AbstractType
             //->add('active')
             //->add('sliderLoop')
             //->add('active')
-            /*->add('slidesNumber', NumberType::class, array(
-                'required' => true
-            ))*/
             ->add('slidesNumber')
             ->add('slideDuration')
             ->add('slideTransitionDuration', NumberType::class, array(

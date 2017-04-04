@@ -112,6 +112,7 @@ class PresentationController extends Controller
             return $this->redirectToRoute('presentation_index');
         }
 
+
         return $this->render('presentation/edit.html.twig', [
             'presentation' => $presentation,
             'form' => $form->createView(),
