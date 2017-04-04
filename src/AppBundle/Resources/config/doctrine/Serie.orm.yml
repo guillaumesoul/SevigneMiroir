@@ -20,5 +20,6 @@ AppBundle\Entity\Serie:
         affichages:
             targetEntity: Affichage
             mappedBy: serie
+            orphanRemoval: true
 
     lifecycleCallbacks: {  }

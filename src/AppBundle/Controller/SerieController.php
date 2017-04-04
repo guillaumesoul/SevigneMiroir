@@ -80,10 +80,12 @@ class SerieController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $serie = $em->getRepository('AppBundle:Serie')->find($serieId);
-        // TODO P1 : gestion de la suppression avec lien avec serie : interdiction de supprimer tant que des series contiennent cette présentation faire message d'alerte pour indiquer les séries concernées
 
-        $em->remove($serie);
-        $em->flush();
+        if($em->contains($serie)) {
+            $em->remove($serie);
+            $em->flush();
+        }
+
         return $this->redirectToRoute('serie_index');
     }
 
