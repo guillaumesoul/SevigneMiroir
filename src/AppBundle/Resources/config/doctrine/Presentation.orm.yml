@@ -28,7 +28,7 @@ AppBundle\Entity\Presentation:
             type: float
             nullable: TRUE
         presentationDuration:
-            type: time
+            type: integer
             nullable: TRUE
         IdGoogleSlide:
             type: string

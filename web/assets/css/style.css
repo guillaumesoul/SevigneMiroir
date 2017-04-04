@@ -1,4 +1,10 @@
-.mdl-list__item_form {
+/* Form*/
+
+form .mdl-list__item_form {
     padding-top: 0px;
     padding-bottom: 0px;
+}
+
+form .mdl-textfield-url-googleslide {
+    width: 100%;
 }

@@ -53,11 +53,6 @@ class Presentation
     private $slideTransitionDuration;
 
     /**
-     * @var \DateTime
-     */
-    private $presentationDuration;
-
-    /**
      * @var string
      */
     private $IdGoogleSlide;
@@ -71,6 +66,11 @@ class Presentation
      * @var boolean
      */
     private $sliderAutostart;
+
+    /**
+     * @var integer
+     */
+    private $presentationDuration;
 
     /**
      * Constructor
@@ -271,30 +271,6 @@ class Presentation
     }
 
     /**
-     * Set presentationDuration
-     *
-     * @param \DateTime $presentationDuration
-     *
-     * @return Presentation
-     */
-    public function setPresentationDuration($presentationDuration)
-    {
-        $this->presentationDuration = $presentationDuration;
-
-        return $this;
-    }
-
-    /**
-     * Get presentationDuration
-     *
-     * @return \DateTime
-     */
-    public function getPresentationDuration()
-    {
-        return $this->presentationDuration;
-    }
-
-    /**
      * Add affichage
      *
      * @param \AppBundle\Entity\Affichage $affichage
@@ -415,5 +391,31 @@ class Presentation
     public function getSliderAutostart()
     {
         return $this->sliderAutostart;
+    }
+
+
+
+    /**
+     * Set presentationDuration
+     *
+     * @param integer $presentationDuration
+     *
+     * @return Presentation
+     */
+    public function setPresentationDuration($presentationDuration)
+    {
+        $this->presentationDuration = $presentationDuration;
+
+        return $this;
+    }
+
+    /**
+     * Get presentationDuration
+     *
+     * @return integer
+     */
+    public function getPresentationDuration()
+    {
+        return $this->presentationDuration;
     }
 }

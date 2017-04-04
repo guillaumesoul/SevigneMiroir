@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    //TODO P2 : réorganisation fichier js en les separant par categorie (serie, presentation etc...)
+
     $('.mdl-timepicker__input').bootstrapMaterialDatePicker({
         date: false,
         format: 'HH:mm'
