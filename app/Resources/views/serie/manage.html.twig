@@ -9,15 +9,11 @@
 
             {% form_theme form 'form/fields.html.twig' %}
 
-            <ul class="demo-list-item mdl-list">
-                <li class="mdl-list__item mdl-list__item_form">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
                         {{ form_label(form.name, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
                         {{ form_errors(form.name) }}
                         {{ form_widget(form.name, { 'attr': {'class': 'mdl-textfield__input'} }) }}
                     </div>
-                </li>
-                <li class="mdl-list__item mdl-list__item_form">
                     <div style="display: none">
                         {{ form_label(form.heureDebut, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
                         {{ form_errors(form.heureDebut) }}
@@ -26,8 +22,6 @@
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
                         <input type="text" id="heureDebut" class="mdl-textfield__input mdl-timepicker__input" placeholder="Heure début" value="{{ serie.heureDebut|date('H:m') }}">
                     </div>
-                </li>
-                <li class="mdl-list__item mdl-list__item_form">
                     <div style="display: none">
                         {{ form_label(form.heureFin, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
                         {{ form_errors(form.heureFin) }}
@@ -36,16 +30,7 @@
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
                         <input type="text" id="heureFin" class="mdl-textfield__input mdl-timepicker__input" placeholder="Heure début" value="{{ serie.heureFin|date('H:m') }}">
                     </div>
-                </li>
 
-                <li>
-                    <div>
-
-                    </div>
-                </li>
-
-
-                <li class="mdl-list__item mdl-list__item_form">
                     <div>
                         {{ form_label(form.save, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
                         {{ form_widget(form.save, { 'attr': {'class': 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored'} }) }}
@@ -58,16 +43,25 @@
                             <i class="material-icons">update</i>
                         </button>
                     </div>
-                </li>
-
-            </ul>
 
             {{ form_rest(form) }}
             {{ form_end(form) }}
         </div>
 
         <div class="mdl-cell mdl-cell--4-col">
-            <h4>Liste des présentations</h4>
+            <h5>Présentations de la série</h5>
+            <ul id='sortable'>
+                {% for affichage in serie.affichages  %}
+                    <span class='mdl-chip' id='{{ affichage.presentation.id }}'>
+                        <span class='mdl-chip__text'>{{ affichage.presentation.name }}</span>
+                            <a href='#' class='mdl-chip__action' data-action='remove'><i class='material-icons'>cancel</i></a> +
+                        </span>
+                    </span>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="mdl-cell mdl-cell--4-col">
+            <h5>Présentations disponibles</h5>
             {# TODO P3 : ajouter durée présentation estimée + nb de slides peut etre en tooltip #}
             {% for presentation in presentations %}
                 <span class='mdl-chip'>
@@ -76,22 +70,6 @@
             </span>
             {% endfor %}
         </div>
-        <div class="mdl-cell mdl-cell--4-col">
-            <ul id='sortable'>
-                {% for affichage in serie.affichages  %}
-                    <span class='mdl-chip' id='{{ affichage.presentation.id }}'>
-                                <span class='mdl-chip__text'>{{ affichage.presentation.name }}</span>
-                                    <a href='#' class='mdl-chip__action' data-action='remove'><i class='material-icons'>cancel</i></a> +
-                                </span>
-                    </span>
-                {% endfor %}
-            </ul>
-        </div>
-
-
-
-
-
     </div>
 
 
