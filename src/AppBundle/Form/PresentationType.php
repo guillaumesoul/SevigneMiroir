@@ -30,10 +30,7 @@ class PresentationType extends AbstractType
             ->add('slideTransitionDuration', NumberType::class, array(
                 'required' => false
             ))
-            ->add('presentationDuration', TimeType::class , array(
-                'with_seconds' => true,
-                'required' => false
-            ))
+            ->add('presentationDuration')
             ->add('save', SubmitType::class, array('label' => 'Save'));
     }
     

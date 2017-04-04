@@ -21,7 +21,7 @@
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-textfield-url-googleslide">
                     {{ form_label(form.url, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
                     {{ form_errors(form.url) }}
-                    {{ form_widget(form.url, { 'attr': {'class': 'mdl-textfield__input'} }) }}
+                    {{ form_widget(form.url, { 'attr': {'class': 'mdl-textfield__input', 'pattern': '.*https\:\/\/docs.google.com\/presentation\/d\/.*'} }) }}
                 </div>
             </li>
             <li class="mdl-list__item mdl-list__item_form">
@@ -55,11 +55,11 @@
                         {{ form_widget(form.presentationDuration) }}
                     </div>
                     <label for="input_text" class="mdl-textfield__label">Minutes</label>
-                    <input type="text" id="minute" name="minute" class="mdl-textfield__input" pattern="[0-5]?[0-9]" placeholder="Min">
+                    <input type="text" id="minute" name="minute" class="mdl-textfield__input mdl-textfield__input-time" pattern="[0-5]?[0-9]" placeholder="Min">
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <label for="input_text" class="mdl-textfield__label">Secondes</label>
-                    <input type="text" id="second" name="second" class="mdl-textfield__input" pattern="[0-5]?[0-9]" placeholder="Sec">
+                    <input type="text" id="second" name="second" class="mdl-textfield__input mdl-textfield__input-time" pattern="[0-5]?[0-9]" placeholder="Sec">
                 </div>
 
             </li>

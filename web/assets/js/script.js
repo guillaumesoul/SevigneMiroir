@@ -7,12 +7,24 @@ $(document).ready(function() {
         format: 'HH:mm'
     });
 
-    //set symfony form input when change material time picker
+    // SERIE : set symfony form input when change material time picker
     $('.mdl-timepicker__input').on('change', function() {
         var formInputTimeHourSelector = '#appbundle_serie_' + this.id + '_hour';
         var formInputTimeMinuteSelector = '#appbundle_serie_' + this.id + '_minute';
         $(formInputTimeHourSelector).val(this.value.split(':')[0]);
         $(formInputTimeMinuteSelector).val(this.value.split(':')[1]);
+    });
+
+    // PRESENTATION : set presentation
+    $('.mdl-textfield__input-time').on('change', function() {
+        var valueInSec = 0;
+        if($('#minute').val() != '') {
+            valueInSec += parseInt($('#minute').val()*60);
+        }
+        if($('#second').val() != '') {
+            valueInSec += parseInt($('#second').val());
+        }
+        $('#appbundle_presentation_presentationDuration').val(valueInSec);
     });
 
 

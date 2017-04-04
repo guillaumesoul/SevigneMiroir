@@ -76,21 +76,6 @@ class PresentationController extends Controller
                 $presentation->setSliderLoop(true);
             }
 
-            $presentationDurationMicroSec = $presentation->getSlideDuration() / 1000 * $presentation->getSlidesNumber();
-            $presentationDurationTimeStamp = $timeStampOrigine + $presentationDurationMicroSec;
-
-            $timeStampOrigine = $request->query->has('slideTransitionDuration');
-            $transitionDuration = 0;
-            if($presentation->getSlideTransitionDuration() != null) {
-                $transitionDuration = $presentation->getSlideTransitionDuration();
-            }
-            $totalTransitionDuration = $transitionDuration/1000 * ($presentation->getSlidesNumber() - 1);
-            $presentationDurationTimeStamp += $totalTransitionDuration;
-
-            $datetimePresDuration = new \DateTime();
-            $datetimePresDuration->setTimestamp($presentationDurationTimeStamp);
-            $presentation->setPresentationDuration($datetimePresDuration);
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($presentation);
             $em->flush();
