@@ -1,5 +1,5 @@
 var/**
-vendor/**
+#!vendor/**
 .idea/workspace.xml
 vendor/
 web/bundles/
