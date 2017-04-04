@@ -68,8 +68,8 @@
                     {{ form_widget(form.save, { 'attr': {'class': 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored'} }) }}
                 </div>
                 <a href="{{ path('presentation_delete', {'presentationId': presentation.id}) }}">
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-                        DELETE
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button">
+                        <i class="material-icons">delete</i>
                     </button>
                 </a>
             </li>
