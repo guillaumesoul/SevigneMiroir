@@ -30,6 +30,7 @@ class SerieController extends Controller
 
     }
 
+    /* TODO P2: regrouper formulaire d'ajout et d'edition en une seul form classe dans dir form de resources/views */
     public function addAction(Request $request)
     {
         $form = $this->createForm(SerieType::class);

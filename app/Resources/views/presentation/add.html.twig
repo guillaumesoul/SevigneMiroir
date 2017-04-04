@@ -10,11 +10,6 @@
         {% form_theme form 'form/fields.html.twig' %}
 
         <ul class="demo-list-item mdl-list">
-            {#<li class="mdl-list__item mdl-list__item_form">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
-                    <input type="text" id="time" class="mdl-textfield__input" placeholder="Time">
-                </div>
-            </li>#}
             <li class="mdl-list__item mdl-list__item_form">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
                     {{ form_label(form.name, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
@@ -73,7 +68,7 @@
         </ul>
 
         {{ form_rest(form) }}
-        {{ form_start(form) }}
+        {{ form_end(form) }}
 
     </div>
 {% endblock %}
