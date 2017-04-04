@@ -11,8 +11,8 @@ $(document).ready(function() {
     $('.mdl-timepicker__input').on('change', function() {
         var formInputTimeHourSelector = '#appbundle_serie_' + this.id + '_hour';
         var formInputTimeMinuteSelector = '#appbundle_serie_' + this.id + '_minute';
-        $(formInputTimeHourSelector).val(this.value.split(':')[0]);
-        $(formInputTimeMinuteSelector).val(this.value.split(':')[1]);
+        $(formInputTimeHourSelector).val(parseInt(this.value.split(':')[0]));
+        $(formInputTimeMinuteSelector).val(parseInt(this.value.split(':')[1]));
     });
 
     // PRESENTATION : set presentation
@@ -64,8 +64,12 @@ $(document).ready(function() {
                 presentationOrder: presentationOrder
             },
             success: function() {
-                console.log('success');
-                //TODO P2 : notification succes enregistrement presentations dans serie
+                var notification = document.querySelector('.mdl-js-snackbar');
+                var data = {
+                    message: 'La série a été mise à jour',
+                    timeout: 10000
+                };
+                notification.MaterialSnackbar.showSnackbar(data);
             },
             error: function () {
                 console.log('error');

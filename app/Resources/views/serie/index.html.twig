@@ -12,28 +12,18 @@
             </a>
 
             {% for serie in series %}
-                <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp">
+                <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--2dp">
                     <a href="{{ path('serie_manage', {'serieId': serie.id}) }}">
-                        <div class="mdl-card__title ">
-                            <h4>{{ serie.name }}</h4>
+                        <div class="mdl-card__title" style="min-height: 130px;">
+                            <h5>{{ serie.name }}</h5>
                         </div>
                     </a>
                     <div class="mdl-card__actions mdl-card--border">
-                        Starts - Finish
+                        {{ serie.heureDebut|date('H:m') }} - {{ serie.heureFin|date('H:m') }}
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div>
-
-    {#<div class="mdl-layout__content">
-        <div>
-            #}{# TODO P3 : serie sous forme de vignettes #}{#
-            <h3>Liste des Séries</h3>
-            {% for serie in series %}
-                <a href="/serie/{{ serie.id }}">{{ serie.name }}</a>
-            {% endfor %}
-        </div>
-    </div>#}
 
 {% endblock %}
