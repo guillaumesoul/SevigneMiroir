@@ -1,9 +1,18 @@
 $(document).ready(function() {
 
-    $('#time').bootstrapMaterialDatePicker({
+    $('.mdl-timepicker__input').bootstrapMaterialDatePicker({
         date: false,
         format: 'HH:mm'
     });
+
+    //set symfony form input when change material time picker
+    $('.mdl-timepicker__input').on('change', function() {
+        var formInputTimeHourSelector = '#appbundle_serie_' + this.id + '_hour';
+        var formInputTimeMinuteSelector = '#appbundle_serie_' + this.id + '_minute';
+        $(formInputTimeHourSelector).val(this.value.split(':')[0]);
+        $(formInputTimeMinuteSelector).val(this.value.split(':')[1]);
+    });
+
 
     $( "#sortable" ).sortable();
 

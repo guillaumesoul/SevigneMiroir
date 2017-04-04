@@ -146,7 +146,7 @@ class SerieController extends Controller
             $em->flush();
         }
 
-        return $this->render('presentation/manage.html.twig', [
+        return $this->render('serie/manage.html.twig', [
             'presentations' => $presentations,
             'serie' => $serie,
             'form' => $form->createView()

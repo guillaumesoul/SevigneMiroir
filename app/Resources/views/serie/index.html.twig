@@ -13,7 +13,7 @@
 
             {% for serie in series %}
                 <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp">
-                    <a href="{{ path('serie_edit', {'serieId': serie.id}) }}">
+                    <a href="{{ path('serie_manage', {'serieId': serie.id}) }}">
                         <div class="mdl-card__title ">
                             <h4>{{ serie.name }}</h4>
                         </div>

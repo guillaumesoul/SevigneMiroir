@@ -39,7 +39,7 @@ serie_delete:
     defaults:  { _controller: AppBundle:Serie:delete }
 
 serie_manage:
-    path:      /serie/{serieId}
+    path:      /serie/{serieId}/manage
     defaults:  { _controller: AppBundle:Serie:manage }
 
 serie_test_affichage:
