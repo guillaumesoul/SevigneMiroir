@@ -4,11 +4,11 @@
 
 
     <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--4-col">
+        <div class="mdl-cell mdl-cell--3-col" style="padding: 25px;">
+            <h5>Série {{ serie.name }}</h5>
             {{ form_start(form) }}
 
             {% form_theme form 'form/fields.html.twig' %}
-
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
                         {{ form_label(form.name, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
                         {{ form_errors(form.name) }}
@@ -32,35 +32,55 @@
                     </div>
 
                     <div>
-                        {{ form_label(form.save, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
-                        {{ form_widget(form.save, { 'attr': {'class': 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored'} }) }}
-                        <a href="{{ path('serie_delete', {'serieId': serie.id}) }}">
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button">
+                        <div style="display: none;">
+                            {{ form_label(form.save, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+                            {{ form_widget(form.save, { 'attr': {'class': 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored'} }) }}
+                        </div>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+                            <i class="material-icons">save</i>
+                        </button>
+                        {#<a href="{{ path('serie_delete', {'serieId': serie.id}) }}">
+                            <button id="serieDelete" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button">
                                 <i class="material-icons">delete</i>
                             </button>
-                        </a>
-                        <button id='getOrder' class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button">
-                            <i class="material-icons">update</i>
+
+                        </a>#}
+
+                        <button id="serieDelete" name="serieDelete" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button">
+                            <i class="material-icons">delete</i>
                         </button>
+
+                        <dialog class="mdl-dialog">
+                            <h4 class="mdl-dialog__title"></h4>
+                            <div class="mdl-dialog__content">
+                                <p>
+                                    Voulez-vous supprimer définitivement cette série?
+                                </p>
+                            </div>
+                            <div class="mdl-dialog__actions">
+                                <button type="button" class="mdl-button validate" data-serieId="{{ serie.id }}">OUI</button>
+                                <button type="button" class="mdl-button close">NON</button>
+                            </div>
+                        </dialog>
                     </div>
 
             {{ form_rest(form) }}
             {{ form_end(form) }}
         </div>
 
-        <div class="mdl-cell mdl-cell--4-col">
+        <div class="mdl-cell mdl-cell--4-col" style="padding: 25px;">
             <h5>Présentations de la série</h5>
-            <ul id='sortable'>
+            <div id='sortable'>
                 {% for affichage in serie.affichages  %}
                     <span class='mdl-chip' id='{{ affichage.presentation.id }}'>
                         <span class='mdl-chip__text'>{{ affichage.presentation.name }}</span>
-                            <a href='#' class='mdl-chip__action' data-action='remove'><i class='material-icons'>cancel</i></a> +
+                            <a href='#' class='mdl-chip__action' data-action='remove'><i class='material-icons'>cancel</i></a>
                         </span>
                     </span>
                 {% endfor %}
-            </ul>
+            </div>
         </div>
-        <div class="mdl-cell mdl-cell--4-col">
+        <div class="mdl-cell mdl-cell--4-col" style="padding: 25px;">
             <h5>Présentations disponibles</h5>
             {# TODO P3 : ajouter durée présentation estimée + nb de slides peut etre en tooltip #}
             {% for presentation in presentations %}

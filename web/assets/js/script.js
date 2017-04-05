@@ -2,20 +2,8 @@ $(document).ready(function() {
 
     //TODO P2 : réorganisation fichier js en les separant par categorie (serie, presentation etc...)
 
-    $('.mdl-timepicker__input').bootstrapMaterialDatePicker({
-        date: false,
-        format: 'HH:mm'
-    });
 
-    // SERIE : set symfony form input when change material time picker
-    $('.mdl-timepicker__input').on('change', function() {
-        var formInputTimeHourSelector = '#appbundle_serie_' + this.id + '_hour';
-        var formInputTimeMinuteSelector = '#appbundle_serie_' + this.id + '_minute';
-        $(formInputTimeHourSelector).val(parseInt(this.value.split(':')[0]));
-        $(formInputTimeMinuteSelector).val(parseInt(this.value.split(':')[1]));
-    });
-
-    // PRESENTATION : set presentation
+    /* PRESENTATION START */
     $('.mdl-textfield__input-time').on('change', function() {
         var valueInSec = 0;
         if($('#minute').val() != '') {
@@ -26,14 +14,29 @@ $(document).ready(function() {
         }
         $('#appbundle_presentation_presentationDuration').val(valueInSec);
     });
+    /* PRESENTATION END */
 
 
+
+    /* SERIE START */
+    $('.mdl-timepicker__input').bootstrapMaterialDatePicker({
+        date: false,
+        format: 'HH:mm'
+    });
+
+    // set symfony form input heureDebut and heureFin when change material time picker
+    $('.mdl-timepicker__input').on('change', function() {
+        var formInputTimeHourSelector = '#appbundle_serie_' + this.id + '_hour';
+        var formInputTimeMinuteSelector = '#appbundle_serie_' + this.id + '_minute';
+        $(formInputTimeHourSelector).val(parseInt(this.value.split(':')[0]));
+        $(formInputTimeMinuteSelector).val(parseInt(this.value.split(':')[1]));
+    });
+
+    //presentations list sortable
     $( "#sortable" ).sortable();
 
-    // TODO P1 : bug changement d'ordre non détecté pour enable bouton enregistrer
-
     $(document).on("click", ".mdl-chip__action", function() {
-        $('#getOrder').prop('disabled', false);
+        //$('#getOrder').prop('disabled', false);
         var link = $(this);
         var action = link.attr('data-action');
         var presentationId = link.attr('data-presentation-id');
@@ -55,7 +58,10 @@ $(document).ready(function() {
         }
     });
 
-    $('#getOrder').on('click', function () {
+    //$('#getOrder').on('click', function () {
+    $('form[name=appbundle_serie]').on('submit', function () {
+
+        console.log('submit');
 
         var presentationOrder = $( "#sortable" ).sortable('toArray');
         $.ajax({
@@ -79,7 +85,21 @@ $(document).ready(function() {
 
     });
 
-    // TODO P3 : detection automatique de la duree de presentation en fonction du nb de slides et de la durée de transition
+
+    var deleteButton = document.querySelector('button[name=serieDelete]');
+    var dialog = document.querySelector('dialog');
+    deleteButton.addEventListener('click', function() {
+        dialog.showModal();
+    });
+    dialog.querySelector('.close').addEventListener('click', function() {
+        dialog.close();
+    });
+    dialog.querySelector('.validate').addEventListener('click', function() {
+        window.location.replace(location.origin + '/serie/' + $(this).attr('data-serieId') + '/delete');
+    });
+
+
+    // TODO P3 : detection automatique de la durée des slides en fonction de l'url de google slide et de la duree de presentation en fonction du nb de slides et de la durée de transition
 
 
 });

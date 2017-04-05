@@ -42,7 +42,7 @@ class PresentationController extends Controller
         $presentation->setActive(true);
         $presentation->setSliderAutostart(true);
         $presentation->setSliderLoop(true);
-        $presentation->setSlideDuration(3000);
+        $presentation->setSlideDuration(3);
 
         $form = $this->createForm(PresentationType::class, $presentation);
         $form->handleRequest($request);
