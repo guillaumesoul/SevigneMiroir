@@ -36,14 +36,10 @@ class DisplayController extends Controller
         $json = '';
         $serializer = $this->get('jms_serializer');
 
-        $series = $em->getRepository('AppBundle:Serie')->getActiveSerie($date);
+        $series = $em->getRepository('AppBundle:Serie')->getActiveSerieAtDateTime($date);
         if(count($series) > 0) {
             $json = $serializer->serialize($series[0], 'json');
         }
-
-        //$serie = $em->getRepository('AppBundle:Serie')->find(3);
-        //$json = $serializer->serialize($serie, 'json');
-
         $response = new JsonResponse();
         $response->setJson($json);
         return $response;

@@ -30,10 +30,6 @@ serie_add:
     path:      /serie/add
     defaults:  { _controller: AppBundle:Serie:add }
 
-serie_edit:
-    path:      /serie/{serieId}
-    defaults:  { _controller: AppBundle:Serie:edit }
-
 serie_delete:
     path:      /serie/{serieId}/delete
     defaults:  { _controller: AppBundle:Serie:delete }

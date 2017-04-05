@@ -55,40 +55,6 @@ class SerieController extends Controller
     }
 
 
-    public function editAction(Request $request, $serieId)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $serie = $em->getRepository('AppBundle:Serie')->find($serieId);
-
-        $form = $this->createForm(SerieType::class, $serie);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($serie);
-            $em->flush();
-
-            return $this->redirectToRoute('serie_index');
-        }
-
-        return $this->render('serie/edit.html.twig', [
-            'serie' => $serie,
-            'form' => $form->createView()
-        ]);
-    }
-
-    public function deleteAction(Request $request, $serieId)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $serie = $em->getRepository('AppBundle:Serie')->find($serieId);
-
-        if($em->contains($serie)) {
-            $em->remove($serie);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('serie_index');
-    }
-
     /**
      * permet d'organiser les présentations
      * définir les présentations actives

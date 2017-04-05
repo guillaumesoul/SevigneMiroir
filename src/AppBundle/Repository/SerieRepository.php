@@ -16,8 +16,9 @@ class SerieRepository extends \Doctrine\ORM\EntityRepository
      * @param \DateTime $dateTime
      * @return mixed
      */
-    public function getActiveSerie(\DateTime $dateTime)
+    public function getActiveSerieAtDateTime(\DateTime $dateTime)
     {
+        /* TODO P1 : requete de recuperation des serie naze */
         $qb = $this->getEntityManager()->createQueryBuilder()
             ->select('s')
             ->from('AppBundle:Serie', 's')
