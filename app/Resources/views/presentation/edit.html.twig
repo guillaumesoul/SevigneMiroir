@@ -66,12 +66,12 @@
                 <div>
                     {{ form_label(form.save, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
                     {{ form_widget(form.save, { 'attr': {'class': 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored'} }) }}
-                </div>
-                <a href="{{ path('presentation_delete', {'presentationId': presentation.id}) }}">
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button">
-                        <i class="material-icons">delete</i>
-                    </button>
-                </a>
+                </div>ton>
+                </a>#}
+                <button id="serieDelete" name="serieDelete" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored deleteConfirmDialog" type="button">
+                    <i class="material-icons">delete</i>
+                </button>
+                {{ include('./components/dialog-confirm-delete.html.twig', {'element': presentation, 'designation': 'présentation'}) }}
             </li>
 
         </ul>

@@ -86,7 +86,8 @@ $(document).ready(function() {
     });
 
 
-    var deleteButton = document.querySelector('button[name=serieDelete]');
+    //var deleteButton = document.querySelector('button[name=serieDelete]');
+    var deleteButton = document.querySelector('.deleteConfirmDialog');
     var dialog = document.querySelector('dialog');
     deleteButton.addEventListener('click', function() {
         dialog.showModal();
@@ -95,7 +96,15 @@ $(document).ready(function() {
         dialog.close();
     });
     dialog.querySelector('.validate').addEventListener('click', function() {
-        window.location.replace(location.origin + '/serie/' + $(this).attr('data-serieId') + '/delete');
+        switch($(this).attr('data-designation')) {
+            case 'série':
+                window.location.replace(location.origin + '/serie/' + $(this).attr('data-elementId') + '/delete');
+                break;
+            case 'présentation':
+                window.location.replace(location.origin + '/presentation/' + $(this).attr('data-elementId') + '/delete');
+                break;
+        }
+
     });
 
 

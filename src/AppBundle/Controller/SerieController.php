@@ -128,7 +128,7 @@ class SerieController extends Controller
             }
 
             //je supprime toutes les relations existantes et ajoute celle envoyées
-            // TODO detection uniquement des changements, ne pas tout supprimer et tout ajouter comme un gros sac
+            // TODO P3 : detection uniquement des changements, ne pas tout supprimer et tout ajouter comme un gros sac
             $existingAffichages = $serie->getAffichages();
             foreach ($existingAffichages as $existingAffichage) {
                 $em->remove($existingAffichage);

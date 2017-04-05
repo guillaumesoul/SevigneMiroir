@@ -47,8 +47,6 @@ class PresentationController extends Controller
         $form = $this->createForm(PresentationType::class, $presentation);
         $form->handleRequest($request);
 
-        //TODO P1 : duree presentation type integer pour nombre de seconde -> on fera 2 inputs dans le form d'ajout pour min et sec
-
         if ($form->isSubmitted() && $form->isValid()) {
 
             //https://docs.google.com/presentation/d/1lATcS1XSr8VnaB_rrZqXjAh6rKV3HMPV573HRFp2e6o/pub?start=false&loop=false&delayms=3000
@@ -123,7 +121,6 @@ class PresentationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $presentation = $em->getRepository('AppBundle:Presentation')->find($presentationId);
-        // TODO P1 : gestion de la suppression avec lien avec serie : interdiction de supprimer tant que des series contiennent cette présentation faire message d'alerte pour indiquer les séries concernées
 
         $em->remove($presentation);
         $em->flush();
