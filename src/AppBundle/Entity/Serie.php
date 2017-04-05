@@ -157,4 +157,28 @@ class Serie
     {
         return $this->affichages;
     }
+
+    /**
+     * Add affichage
+     *
+     * @param \AppBundle\Entity\Affichage $affichage
+     *
+     * @return Serie
+     */
+    public function addAffichage(\AppBundle\Entity\Affichage $affichage)
+    {
+        $this->affichages[] = $affichage;
+
+        return $this;
+    }
+
+    /**
+     * Remove affichage
+     *
+     * @param \AppBundle\Entity\Affichage $affichage
+     */
+    public function removeAffichage(\AppBundle\Entity\Affichage $affichage)
+    {
+        $this->affichages->removeElement($affichage);
+    }
 }
