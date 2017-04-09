@@ -19,6 +19,9 @@ class PresentationController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $user = $this->getUser();
+        $user->getId();
+
         $em = $this->getDoctrine()->getManager();
         $presentations = $em->getRepository('AppBundle:Presentation')->findAll();
 
