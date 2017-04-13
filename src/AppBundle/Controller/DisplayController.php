@@ -40,6 +40,7 @@ class DisplayController extends Controller
         if(count($series) > 0) {
             $json = $serializer->serialize($series[0], 'json');
         }
+
         $response = new JsonResponse();
         $response->setJson($json);
         return $response;
