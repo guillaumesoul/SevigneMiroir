@@ -65,3 +65,7 @@ serie_active:
     path:      /display/active
     defaults:  { _controller: AppBundle:Display:getAffichage }
 
+display_previsualisation:
+    path:      /display/previsualisation
+    defaults:  { _controller: AppBundle:Display:previsualisation }
+

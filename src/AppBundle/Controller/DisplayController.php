@@ -45,4 +45,17 @@ class DisplayController extends Controller
         return $response;
 
     }
+
+    /*
+     * Cette fonction permet de retourner l'affichage en fonction de l'heure
+     *
+     * Retourne un flux Json
+     * */
+    public function previsualisationAction()
+    {
+
+        return $this->render('display/previsualisation.html.twig');
+
+    }
+
 }
