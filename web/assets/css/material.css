@@ -10083,7 +10083,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
           transform: scale(0);
   -webkit-transform-origin: top center;
           transform-origin: top center;
-  will-change: transform;
+  /*will-change: transform;*/
   z-index: 999;
   background: rgba(97,97,97, 0.9);
   border-radius: 2px;
