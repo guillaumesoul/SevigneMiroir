@@ -1,0 +1,15 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    {# TODO resolution pb deploiement heroku assets in vendor #}
+    {#<link rel="stylesheet" href="{{ asset('assets/vendor/material-design-lite/material.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/mdl-selectfield/dist/mdl-selectfield.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') }}">#}
+
+    <link rel="stylesheet" href="{{ asset('assets/css/material.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/mdl-selectfield.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.css') }}">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+{% endblock %}

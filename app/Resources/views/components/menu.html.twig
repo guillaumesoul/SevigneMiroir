@@ -1,0 +1,30 @@
+{% block menu %}
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <nav class="mdl-navigation">
+                {% if app.user %}
+                    <a class="mdl-navigation__link" href="{{ path('home') }}">
+                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
+                            <i class="material-icons">home</i>
+                        </button>
+                    </a>
+                    <a class="mdl-navigation__link" href="{{ path('presentation_index') }}">
+                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
+                            <i class="material-icons">desktop_windows</i>
+                        </button>
+                    </a>
+                    <a class="mdl-navigation__link" href="{{ path('serie_index') }}">
+                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
+                            <i class="material-icons">query_builder</i>
+                        </button>
+                    </a>
+                {% endif %}
+
+            </nav>
+            <div class="mdl-layout-spacer"></div>
+            <span class="mdl-layout-title">
+                {% include('components/connexion.html.twig') %}
+            </span>
+        </div>
+    </header>
+{% endblock %}
