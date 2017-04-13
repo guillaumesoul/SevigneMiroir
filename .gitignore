@@ -16,3 +16,7 @@ web/bundles/
 !var/sessions/.gitkeep
 !bin/console
 !bin/symfony_requirements
+
+# Parameters
+/app/config/parameters.yml
+/app/config/parameters.ini
