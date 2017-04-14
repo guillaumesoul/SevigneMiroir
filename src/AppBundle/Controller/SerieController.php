@@ -22,7 +22,8 @@ class SerieController extends Controller
     {
         //il faut que je liste les présentations enregistrées
         $em = $this->getDoctrine()->getManager();
-        $series = $em->getRepository('AppBundle:Serie')->findAll();
+        //$series = $em->getRepository('AppBundle:Serie')->findAll();
+        $series = $em->getRepository('AppBundle:Serie')->findByUser($this->getUser());
 
         return $this->render('serie/index.html.twig', [
             'series' => $series

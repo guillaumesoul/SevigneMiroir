@@ -33,6 +33,11 @@ class Serie
     private $affichages;
 
     /**
+     * @var \AppBundle\Entity\User
+     */
+    private $user;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -180,5 +185,30 @@ class Serie
     public function removeAffichage(\AppBundle\Entity\Affichage $affichage)
     {
         $this->affichages->removeElement($affichage);
+    }
+
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Serie
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

@@ -10,3 +10,6 @@ AppBundle\Entity\User:
         presentations:
             targetEntity: Presentation
             mappedBy: user
+        series:
+            targetEntity: Serie
+            mappedBy: user

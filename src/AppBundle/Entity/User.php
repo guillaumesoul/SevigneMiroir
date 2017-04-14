@@ -19,6 +19,10 @@ class User extends BaseUser
      */
     private $presentations;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $series;
 
     /**
      * Get id
@@ -63,5 +67,40 @@ class User extends BaseUser
     public function getPresentations()
     {
         return $this->presentations;
+    }
+
+
+    /**
+     * Add series
+     *
+     * @param \AppBundle\Entity\Serie $series
+     *
+     * @return User
+     */
+    public function addSeries(\AppBundle\Entity\Serie $series)
+    {
+        $this->series[] = $series;
+
+        return $this;
+    }
+
+    /**
+     * Remove series
+     *
+     * @param \AppBundle\Entity\Serie $series
+     */
+    public function removeSeries(\AppBundle\Entity\Serie $series)
+    {
+        $this->series->removeElement($series);
+    }
+
+    /**
+     * Get series
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSeries()
+    {
+        return $this->series;
     }
 }

@@ -21,5 +21,12 @@ AppBundle\Entity\Serie:
             targetEntity: Affichage
             mappedBy: serie
             orphanRemoval: true
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: series
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
 
     lifecycleCallbacks: {  }
