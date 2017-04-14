@@ -19,9 +19,6 @@ class PresentationController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $user = $this->getUser();
-        $user->getId();
-
         $em = $this->getDoctrine()->getManager();
         $presentations = $em->getRepository('AppBundle:Presentation')->findAll();
 
@@ -40,6 +37,8 @@ class PresentationController extends Controller
     {
         $date = new \DateTime('1970-01-01 00:00:00');
         $timeStampOrigine = $date->getTimestamp();
+
+        $user = $this->getUser();
 
         $presentation = new Presentation();
         $presentation->setActive(true);
@@ -71,10 +70,8 @@ class PresentationController extends Controller
                 }
 
                 $presentation->setSliderAutostart(true);
-                /*if(isset($loop)) {
-                    $presentation->setSliderLoop($loop);
-                }*/
                 $presentation->setSliderLoop(true);
+                $presentation->setUser($this->getUser());
             }
 
             $em = $this->getDoctrine()->getManager();
