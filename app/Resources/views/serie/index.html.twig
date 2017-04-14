@@ -4,22 +4,28 @@
 
     <div class="mdl-layout__content">
         <div class="mdl-grid">
-            <h3 class="mdl-cell mdl-cell--12-col">Séries </h3>
+            <h3 class="mdl-cell mdl-cell--12-col">Créneau horaire de présentation </h3>
             <a class="mdl-cell mdl-cell--12-col" href="{{ path('serie_add') }}">
-                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
+                <button id="serie-add" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
                     <i class="material-icons">add</i>
                 </button>
+                <div class="mdl-tooltip" for="serie-add">
+                    Ajouter un nouveau créneau horaire de présentation
+                </div>
             </a>
 
             {% for serie in series %}
-                <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--2dp">
-                    <a href="{{ path('serie_manage', {'serieId': serie.id}) }}">
+                <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--2dp custom-thumbnail">
+                    <a id="{{ 'serie-edit-' ~ serie.id }}" href="{{ path('serie_manage', {'serieId': serie.id}) }}">
                         <div class="mdl-card__title" style="min-height: 130px;">
-                            <h5>{{ serie.name }}</h5>
+                            <h6>{{ serie.name }}</h6>
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            De {{ serie.heureDebut|date('H:i') }} à {{ serie.heureFin|date('H:i') }}
                         </div>
                     </a>
-                    <div class="mdl-card__actions mdl-card--border">
-                        {{ serie.heureDebut|date('H:m') }} - {{ serie.heureFin|date('H:m') }}
+                    <div class="mdl-tooltip" for="{{ 'serie-edit-' ~ serie.id }}">
+                        Editer le créneau horaire
                     </div>
                 </div>
             {% endfor %}
