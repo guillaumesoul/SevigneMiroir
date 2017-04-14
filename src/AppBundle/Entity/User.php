@@ -14,6 +14,11 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $presentations;
+
 
     /**
      * Get id
@@ -24,5 +29,39 @@ class User extends BaseUser
     {
         return $this->id;
     }
-}
 
+
+    /**
+     * Add presentation
+     *
+     * @param \AppBundle\Entity\Presentation $presentation
+     *
+     * @return User
+     */
+    public function addPresentation(\AppBundle\Entity\Presentation $presentation)
+    {
+        $this->presentations[] = $presentation;
+
+        return $this;
+    }
+
+    /**
+     * Remove presentation
+     *
+     * @param \AppBundle\Entity\Presentation $presentation
+     */
+    public function removePresentation(\AppBundle\Entity\Presentation $presentation)
+    {
+        $this->presentations->removeElement($presentation);
+    }
+
+    /**
+     * Get presentations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPresentations()
+    {
+        return $this->presentations;
+    }
+}
