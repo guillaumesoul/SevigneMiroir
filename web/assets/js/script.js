@@ -3,6 +3,7 @@ $(document).ready(function() {
     //TODO P2 : réorganisation fichier js en les separant par categorie (serie, presentation etc...)
 
 
+
     /* PRESENTATION START */
     $('.mdl-textfield__input-time').on('change', function() {
         var valueInSec = 0;
