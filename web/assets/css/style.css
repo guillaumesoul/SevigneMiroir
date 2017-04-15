@@ -8,3 +8,16 @@ form .mdl-list__item_form {
 form .mdl-textfield-url-googleslide {
     width: 100%;
 }
+
+/* Thumbnail */
+.custom-thumbnail {
+    min-height: initial;
+}
+
+.custom-thumbnail a{
+    text-decoration: none;
+}
+
+.custom-thumbnail .mdl-card__actions {
+    text-align: center;
+}

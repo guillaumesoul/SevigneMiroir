@@ -2,7 +2,6 @@
 
 {% block body %}
 
-
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--3-col" style="padding: 25px;">
             <h5>Série {{ serie.name }}</h5>
@@ -20,7 +19,8 @@
                         {{ form_widget(form.heureDebut, { 'attr': {'class': 'mdl-textfield__input'} }) }}
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
-                        <input type="text" id="heureDebut" class="mdl-textfield__input mdl-timepicker__input" placeholder="Heure début" value="{{ serie.heureDebut|date('H:m') }}">
+                        <label class="mdl-textfield__label required" for="appbundle_serie_name">Commence à</label>
+                        <input type="text" id="heureDebut" class="mdl-textfield__input mdl-timepicker__input" placeholder="" value="{{ serie.heureDebut|date('H:m') }}">
                     </div>
                     <div style="display: none">
                         {{ form_label(form.heureFin, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
@@ -28,7 +28,8 @@
                         {{ form_widget(form.heureFin, { 'attr': {'class': 'mdl-textfield__input'} }) }}
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
-                        <input type="text" id="heureFin" class="mdl-textfield__input mdl-timepicker__input" placeholder="Heure début" value="{{ serie.heureFin|date('H:m') }}">
+                        <label class="mdl-textfield__label required" for="appbundle_serie_name">Termine à</label>
+                        <input type="text" id="heureFin" class="mdl-textfield__input mdl-timepicker__input" placeholder="" value="{{ serie.heureFin|date('H:m') }}">
                     </div>
 
                     <div>
@@ -68,7 +69,7 @@
             <h5>Présentations disponibles</h5>
             {# TODO P3 : ajouter durée présentation estimée + nb de slides peut etre en tooltip #}
             {% for presentation in presentations %}
-                <span class='mdl-chip'>
+            <span class='mdl-chip'>
                 <span class='mdl-chip__text'>{{ presentation.name }}</span>
                 <a href='#' class='mdl-chip__action' data-action='add' data-presentation-id='{{ presentation.id }}' data-presentation-name='{{ presentation.name }}'><i class='material-icons'>add</i></a>
             </span>
@@ -81,6 +82,8 @@
         <div class="mdl-snackbar__text"></div>
         <button type="button" class="mdl-snackbar__action"></button>
     </div>
+
+
 
 {% endblock %}
 

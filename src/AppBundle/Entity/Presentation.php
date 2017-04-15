@@ -73,6 +73,11 @@ class Presentation
     private $presentationDuration;
 
     /**
+     * @var \AppBundle\Entity\User
+     */
+    private $user;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -417,5 +422,29 @@ class Presentation
     public function getPresentationDuration()
     {
         return $this->presentationDuration;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Presentation
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

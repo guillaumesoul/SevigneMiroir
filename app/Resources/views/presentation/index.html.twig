@@ -5,20 +5,30 @@
         <div class="mdl-grid">
             <h3 class="mdl-cell mdl-cell--12-col">Présentations </h3>
             <a class="mdl-cell mdl-cell--12-col" href="{{ path('presentation_add') }}">
-                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
+                <button id="presentation-add" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
                     <i class="material-icons">add</i>
                 </button>
+                <div class="mdl-tooltip" for="presentation-add">
+                    Ajouter une nouvelle présentation
+                </div>
             </a>
 
             {% for presentation in presentations %}
-                <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--2dp">
-                    <a href="{{ path('presentation_edit', {'presentationId': presentation.id}) }}">
-                    <div class="mdl-card__title ">
-                        <h4>{{ presentation.name }}</h4>
-                    </div>
+                <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--2dp custom-thumbnail">
+                    <a id="{{ 'presentation-edit-' ~ presentation.id }}" href="{{ path('presentation_edit', {'presentationId': presentation.id}) }}">
+                        <div class="mdl-card__title ">
+                            <h6>{{ presentation.name }}</h6>
+                        </div>
                     </a>
+                    <div class="mdl-tooltip" for="{{ 'presentation-edit-' ~ presentation.id }}">
+                        Editer la présentation
+                    </div>
                     <div class="mdl-card__actions mdl-card--border">
-                        <a href="{{ 'https://docs.google.com/presentation/d/' ~ presentation.IdGoogleSlide ~ '/edit#slide=id.p'}}" target="_blank">Google slide</a>
+                        <a id="{{ 'presentation-gslide-link' ~ presentation.id }}" href="{{ 'https://docs.google.com/presentation/d/' ~ presentation.IdGoogleSlide ~ '/edit#slide=id.p'}}" target="_blank">Google slide</a>
+                        {# TODO P3 : mettre le tooltip au dessus des presentations, pb z-index #}
+                        <div class="mdl-tooltip" for="{{ 'presentation-gslide-link' ~ presentation.id }}" >
+                            Editez le google slide
+                        </div>
                     </div>
                 </div>
             {% endfor %}

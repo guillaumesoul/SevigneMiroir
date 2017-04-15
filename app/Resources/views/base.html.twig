@@ -4,74 +4,23 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Informations médicales{% endblock %}</title>
 
-        {% block stylesheets %}
-            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-            {#<link rel="stylesheet" href="{{ asset('assets/vendor/material-design-lite/material.css') }}">
-            <link rel="stylesheet" href="{{ asset('assets/vendor/mdl-selectfield/dist/mdl-selectfield.css') }}">
-            <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') }}">#}
-
-            <link rel="stylesheet" href="{{ asset('assets/css/material.css') }}">
-            <link rel="stylesheet" href="{{ asset('assets/css/mdl-selectfield.css') }}">
-            <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.css') }}">
-            <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-
-            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        {% endblock %}
+        {% include('components/stylesheets.html.twig') %}
 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
 
-    <div class="mdl-layout mdl-js-layout">
+        <div class="mdl-layout mdl-js-layout">
 
-        {% block menu %}
-            <header class="mdl-layout__header">
-                <div class="mdl-layout__header-row">
-                    <nav class="mdl-navigation">
-                        <a class="mdl-navigation__link" href="{{ path('home') }}">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
-                                <i class="material-icons">home</i>
-                            </button>
-                        </a>
-                        <a class="mdl-navigation__link" href="{{ path('presentation_index') }}">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
-                                <i class="material-icons">desktop_windows</i>
-                            </button>
-                        </a>
-                        <a class="mdl-navigation__link" href="{{ path('serie_index') }}">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
-                                <i class="material-icons">query_builder</i>
-                            </button>
-                        </a>
-                    </nav>
-                    <div class="mdl-layout-spacer"></div>
-                    <span class="mdl-layout-title">Super Affichage</span>
-                </div>
-            </header>
-        {% endblock %}
+            {% include('components/menu.html.twig') %}
 
-        {% block body %}
-        {% endblock %}
+            {% block body %}
+            {% endblock %}
 
-    </div>
 
-        {% block javascripts %}
-            <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-            {#<script defer src="{{ asset('assets/vendor/material-design-lite/material.js') }}"></script>
-            <script defer src="{{ asset('assets/vendor/mdl-selectfield/dist/mdl-selectfield.js') }}"></script>
-            <script defer src="{{ asset('assets/vendor/momentjs/moment.js') }}"></script>
-            <script defer src="{{ asset('assets/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}"></script>#}
+        </div>
 
-            <script defer src="{{ asset('assets/js/material.js') }}"></script>
-            <script defer src="{{ asset('assets/js/mdl-selectfield.js') }}"></script>
-            <script defer src="{{ asset('assets/js/moment.js') }}"></script>
-            <script defer src="{{ asset('assets/js/bootstrap-material-datetimepicker.js') }}"></script>
+        {% include('components/javascript.html.twig') %}
 
-            <script defer src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
-            <script defer src="/assets/js/script.js" type="text/javascript" ></script>
-        {% endblock %}
     </body>
 </html>
-
-{# TODO P2 : traduire les libellé des inputs de tous les forms #}

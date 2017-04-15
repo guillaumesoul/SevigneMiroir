@@ -20,7 +20,7 @@ class PresentationController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $presentations = $em->getRepository('AppBundle:Presentation')->findAll();
+        $presentations = $em->getRepository('AppBundle:Presentation')->findByUser($this->getUser());
 
         return $this->render('presentation/index.html.twig', [
             'presentations' => $presentations
@@ -35,10 +35,12 @@ class PresentationController extends Controller
      */
     public function addAction(Request $request)
     {
-        $date = new \DateTime('1970-01-01 00:00:00');
-        $timeStampOrigine = $date->getTimestamp();
+        // TODO : P4 to delete
+        /*$date = new \DateTime('1970-01-01 00:00:00');
+        $timeStampOrigine = $date->getTimestamp();*/
 
         $presentation = new Presentation();
+        $presentation->setUser($this->getUser());
         $presentation->setActive(true);
         $presentation->setSliderAutostart(true);
         $presentation->setSliderLoop(true);
@@ -66,12 +68,6 @@ class PresentationController extends Controller
                 if(isset($googleSlideId)) {
                     $presentation->setIdGoogleSlide($googleSlideId);
                 }
-
-                $presentation->setSliderAutostart(true);
-                /*if(isset($loop)) {
-                    $presentation->setSliderLoop($loop);
-                }*/
-                $presentation->setSliderLoop(true);
             }
 
             $em = $this->getDoctrine()->getManager();

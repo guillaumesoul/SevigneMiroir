@@ -47,6 +47,12 @@ AppBundle\Entity\Presentation:
             joinColumn:
                 name: category_id
                 referencedColumnName: id
+        user:
+            targetEntity: User
+            inversedBy: presentations
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
     oneToMany:
         affichages:
             targetEntity: Affichage

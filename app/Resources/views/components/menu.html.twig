@@ -1,0 +1,48 @@
+{% block menu %}
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <nav class="mdl-navigation">
+                {% if app.user %}
+                    <a class="mdl-navigation__link" href="{{ path('home') }}">
+                        <button id="home-link" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
+                            <i class="material-icons">home</i>
+                        </button>
+                        <div class="mdl-tooltip" for="home-link">
+                            Accueil
+                        </div>
+                    </a>
+                    <a class="mdl-navigation__link" href="{{ path('presentation_index') }}">
+                        <button id="presentation-link" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
+                            <i class="material-icons">burst_mode</i>
+                        </button>
+                        <div class="mdl-tooltip" for="presentation-link">
+                            Gérez vos présentations
+                        </div>
+                    </a>
+                    <a class="mdl-navigation__link" href="{{ path('serie_index') }}">
+                        <button id="serie-link"  class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
+                            <i class="material-icons">query_builder</i>
+                        </button>
+                        <div class="mdl-tooltip" for="serie-link">
+                            Gérez vos créneaux horaires d'affichages
+                        </div>
+                    </a>
+                    <a class="mdl-navigation__link" href="{{ path('display_previsualisation') }}" target="_blank">
+                        <button id="previsualisation-link" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--accent">
+                            <i class="material-icons">ondemand_video</i>
+                        </button>
+                        <div class="mdl-tooltip" for="previsualisation-link">
+                            Visualisez
+                        </div>
+                    </a>
+
+                {% endif %}
+
+            </nav>
+            <div class="mdl-layout-spacer"></div>
+            <span class="mdl-layout-title">
+                {% include('components/connexion.html.twig') %}
+            </span>
+        </div>
+    </header>
+{% endblock %}
