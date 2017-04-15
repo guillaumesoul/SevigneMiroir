@@ -2,7 +2,6 @@
 
 {% block body %}
 
-
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--3-col" style="padding: 25px;">
             <h5>Série {{ serie.name }}</h5>
@@ -56,6 +55,11 @@
             <h5>Présentations de la série</h5>
             <div id='sortable'>
                 {% for affichage in serie.affichages  %}
+                    {#<span class='mdl-chip' id='{{ affichage.presentation.id }}'>
+                        <span class='mdl-chip__text'>{{ affichage.presentation.name }}</span>
+                            <a href='#' class='mdl-chip__action' data-action='remove'><i class='material-icons'>cancel</i></a>
+                        </span>
+                    </span>#}
                     <span class='mdl-chip' id='{{ affichage.presentation.id }}'>
                         <span class='mdl-chip__text'>{{ affichage.presentation.name }}</span>
                             <a href='#' class='mdl-chip__action' data-action='remove'><i class='material-icons'>cancel</i></a>
@@ -67,8 +71,9 @@
         <div class="mdl-cell mdl-cell--4-col" style="padding: 25px;">
             <h5>Présentations disponibles</h5>
             {# TODO P3 : ajouter durée présentation estimée + nb de slides peut etre en tooltip #}
+            {# TODO P3 : improve display badge #}
             {% for presentation in presentations %}
-                <span class='mdl-chip'>
+            <span class='mdl-chip'>
                 <span class='mdl-chip__text'>{{ presentation.name }}</span>
                 <a href='#' class='mdl-chip__action' data-action='add' data-presentation-id='{{ presentation.id }}' data-presentation-name='{{ presentation.name }}'><i class='material-icons'>add</i></a>
             </span>
@@ -81,6 +86,8 @@
         <div class="mdl-snackbar__text"></div>
         <button type="button" class="mdl-snackbar__action"></button>
     </div>
+
+
 
 {% endblock %}
 

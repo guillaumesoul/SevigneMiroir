@@ -42,9 +42,10 @@ class SerieController extends Controller
         // TODO P3 : gestion des series sur les jours de la semaine?
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $series = $form->getData();
+            $serie = $form->getData();
+            $serie->setUser($this->getUser());
             $em = $this->getDoctrine()->getManager();
-            $em->persist($series);
+            $em->persist($serie);
             $em->flush();
 
             return $this->redirectToRoute('serie_index');
