@@ -23,7 +23,8 @@
                     {{ form_widget(form.heureDebut, { 'attr': {'class': 'mdl-textfield__input'} }) }}
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
-                    <input type="text" id="heureDebut" class="mdl-textfield__input mdl-timepicker__input" placeholder="Commence à">
+                    <label class="mdl-textfield__label required" for="appbundle_serie_name">Commence à</label>
+                    <input type="text" id="heureDebut" class="mdl-textfield__input mdl-timepicker__input" placeholder="">
                 </div>
                 {# TODO P3 : gestion mise en forme erreur #}
                 {{ form_errors(form.heureDebut) }}
@@ -34,7 +35,8 @@
                     {{ form_widget(form.heureFin, { 'attr': {'class': 'mdl-textfield__input'} }) }}
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
-                    <input type="text" id="heureFin" class="mdl-textfield__input mdl-timepicker__input" placeholder="Termine à">
+                    <label class="mdl-textfield__label required" for="appbundle_serie_name">Termine à</label>
+                    <input type="text" id="heureFin" class="mdl-textfield__input mdl-timepicker__input" placeholder="">
                 </div>
                 {{ form_errors(form.heureFin) }}
             </li>
