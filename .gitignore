@@ -18,5 +18,5 @@ web/bundles/
 !bin/symfony_requirements
 
 # Parameters
-/app/config/parameters.yml
+#/app/config/parameters.yml
 /app/config/parameters.ini
