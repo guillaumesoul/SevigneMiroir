@@ -13,7 +13,9 @@
                     Ajouter un nouveau créneau horaire de présentation
                 </div>
             </a>
+        </div>
 
+        <div class="mdl-grid" id="serie-list">
             {% for serie in series %}
                 <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--2dp custom-thumbnail">
                     <a id="{{ 'serie-edit-' ~ serie.id }}" href="{{ path('serie_manage', {'serieId': serie.id}) }}">

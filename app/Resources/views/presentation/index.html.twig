@@ -12,7 +12,9 @@
                     Ajouter une nouvelle présentation
                 </div>
             </a>
+        </div>
 
+        <div class="mdl-grid" id="presentation-list">
             {% for presentation in presentations %}
                 <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--2dp custom-thumbnail">
                     <a id="{{ 'presentation-edit-' ~ presentation.id }}" href="{{ path('presentation_edit', {'presentationId': presentation.id}) }}">
